@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>G38Proj</artifactId>
+    <groupId>G38Proj</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
 
-  <groupId>G38Proj</groupId>
-  <artifactId>G38Proj</artifactId>
+  <groupId>kusnetsovProj</groupId>
+  <artifactId>kusnetsovProj</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
 
-  <name>G38Proj</name>
+  <name>kusnetsovProj</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -71,31 +75,4 @@
       </plugins>
     </pluginManagement>
   </build>
-  <modules>
-    <module>overAll</module>
-    <module>ananevaProj</module>
-    <module>borukProj</module>
-    <module>bulatetskiiProj</module>
-    <module>golubevaProj</module>
-    <module>gorbanProj</module>
-    <module>duhinProj</module>
-    <module>erchenkoProj</module>
-    <module>kimProj</module>
-    <module>kravchukProj</module>
-    <module>kusnetsovProj</module>
-    <module>kuharProj</module>
-    <module>liashenkoEProj</module>
-    <module>liashenkoSProj</module>
-    <module>melnikovProj</module>
-    <module>ovramenkoProj</module>
-    <module>prilipkoProj</module>
-    <module>simonProj</module>
-    <module>skibaProj</module>
-    <module>skliarProj</module>
-    <module>soltysukProj</module>
-    <module>chepikProj</module>
-    <module>ianchukProj</module>
-    <module>grebenukProj</module>
-    <module>velichkoProj</module>
-  </modules>
 </project>
