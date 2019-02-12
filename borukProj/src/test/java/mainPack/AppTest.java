@@ -11,6 +11,7 @@ public class AppTest
 {
     /**
      * Rigorous Test :-)
+     Proba for first commit
      */
     @Test
     public void shouldAnswerWithTrue()
