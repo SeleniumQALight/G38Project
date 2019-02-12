@@ -10,7 +10,7 @@ import org.junit.Test;
 public class AppTest 
 {
     /**
-     * Rigorous Test :-)
+     * Rigorous Test :-) you added the comment. Cuod you commit them
      */
     @Test
     public void shouldAnswerWithTrue()
