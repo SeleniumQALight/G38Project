@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * Unit test for simple App.12021
+ * Unit test for simple App.120212
  */
 public class AppTest 
 {
