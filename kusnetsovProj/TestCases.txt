@@ -4,7 +4,7 @@ TC#1 = Autorization
 =====================
 
 Pre-condition:
- - Go to URL: "http://---"
+ - Go to URL: "http://-"
 
 STR:
 
