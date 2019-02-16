@@ -1,0 +1,17 @@
+
+=====================
+TC#1 = Autorization
+=====================
+
+Pre-condition:
+ - Go to URL: "http://---"
+
+STR:
+
+1.
+
+Post-condition
+
+AR:
+
+ER:
