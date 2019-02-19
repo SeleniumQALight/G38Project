@@ -1,0 +1,15 @@
+    Проверка атрибутов страницы авторизаации
+1. Перейти на страницу http://v3.test.itpmgroup.com/login
+   Проверить наличие заголовка .//b[text()='Учет запчастей']
+2. Перейти на страницу http://v3.test.itpmgroup.com/login
+   Проверить наличие блока авторизации .//div[@class="login-box-body"]
+3. Перейти на страницу http://v3.test.itpmgroup.com/login
+   Проверить наличие поля ввода Email .//input[@placeholder="Email"]
+4. Перейти на страницу http://v3.test.itpmgroup.com/login
+   Проверить наличие поля ввода Password .//input[@placeholder="Password"]
+5. Перейти на страницу http://v3.test.itpmgroup.com/login
+   Проверить нааличие кнопки .//button[@class="btn btn-primary btn-block btn-flat"]
+6. Перейти на страницу http://v3.test.itpmgroup.com/login
+   Проверить наличие строки "Напомнить пароль" .//a[@href='#']
+7. Перейти на страницу http://v3.test.itpmgroup.com/login
+   Проверить наличие строки "Зарегистрироваться" .//a[@href='register.html']
