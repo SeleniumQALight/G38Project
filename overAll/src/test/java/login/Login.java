@@ -31,10 +31,12 @@ public class Login {
         webDriver.findElement(By.tagName("button")).click();
 
         Assert.assertTrue("Avatar is not present",
-                webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed());
+                webDriver.findElement(By.xpath(".//*[@class='pull-left image']"))
+                        .isDisplayed());
 
         webDriver.quit();
 
     }
+
 
 }
