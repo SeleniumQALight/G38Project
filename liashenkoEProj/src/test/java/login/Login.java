@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class Login {
+    WebDriver webDriver;
     @Test
             public void validLogIn() {
         File file = new File("./src/drivers/chromedriver.exe");
@@ -36,10 +37,11 @@ public class Login {
 
     @Test
     public void DontValidLogin(){
+        try {
+
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-
-        WebDriver webDriver = new ChromeDriver();
+        webDriver = new ChromeDriver();
 
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -53,9 +55,12 @@ public class Login {
 
         webDriver.findElement(By.tagName("button")).click();
 
-        Assert.assertTrue("Avatar is not present", webDriver.findElement(By.xpath(".//input[@name='_username']")).isDisplayed());
+        Assert.assertTrue("Avatar is not present", webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed());
 
-        webDriver.quit();
-
+        webDriver.quit();}
+        catch (Exception e) {
+            System.out.println("Invalid Email");
+            webDriver.quit();
+        }
     }
 }
