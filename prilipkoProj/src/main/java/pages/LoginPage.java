@@ -25,7 +25,8 @@ public class LoginPage {
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    public void clickSubmitButton() {
+    public DashboardPage clickSubmitButton() {
         driver.findElement(submitButton).click();
+        return new DashboardPage(driver);
     }
 }
