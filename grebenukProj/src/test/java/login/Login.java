@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class Login {
-    @Test // 2.
+    @Test // 2. Аналогично с мейн
     public void validLogin() {   //3
         File file = new File("./src/drivers/chromedriver.exe"); //4
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());  //5
