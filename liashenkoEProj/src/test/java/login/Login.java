@@ -34,4 +34,28 @@ public class Login {
         webDriver.quit();
     }
 
+    @Test
+    public void DontValidLogin(){
+        File file = new File("./src/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+
+        WebDriver webDriver = new ChromeDriver();
+
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        webDriver.get("http://v3.test.itpmgroup.com");
+        System.out.println("Site was opened");
+
+        webDriver.findElement(By.name("_username")).sendKeys("Studenttt");
+
+        webDriver.findElement(By.id("password")).sendKeys("909090");
+
+        webDriver.findElement(By.tagName("button")).click();
+
+        Assert.assertTrue("Avatar is not present", webDriver.findElement(By.xpath(".//input[@name='_username']")).isDisplayed());
+
+        webDriver.quit();
+
+    }
 }
