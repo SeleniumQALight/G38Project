@@ -33,4 +33,29 @@ public class login {
         webDriver.quit();
     }
 
+    @Test
+    /**
+     * Home work 19.02.2019
+     */
+    public void invalidLogin() {
+        File file = new File("./src/drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+
+        WebDriver webDriver = new ChromeDriver();
+
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        System.out.println("Start test");
+        webDriver.get("http://v3.test.itpmgroup.com");
+
+        webDriver.findElement(By.name("_username")).sendKeys("InvalidName");
+        webDriver.findElement(By.id("password")).sendKeys("invalildPass");
+        webDriver.findElement(By.tagName("button")).click();
+//        Assert.assertFalse("Avatar is not displayed", webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed()); //почему ошибка?
+        Assert.assertTrue(" ", webDriver.getCurrentUrl().equals("http://v3.test.itpmgroup.com/login"));
+
+        webDriver.quit();
+    }
+
 }
