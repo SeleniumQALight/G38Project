@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Login {
     @Test
-            public void  validLogin() {
+    public void validLogin() {
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         WebDriver webDriver = new ChromeDriver();
@@ -24,9 +24,11 @@ public class Login {
         webDriver.findElement(By.name("_username")).sendKeys("Student");
         webDriver.findElement(By.id("password")).sendKeys("909090");
         webDriver.findElement(By.tagName("button")).click();
+        System.out.println("ввели данные и нажали на кнопку");
 
         Assert.assertTrue("Avatar is not present", webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed());
-
+        Assert.assertEquals("http://v3.test.itpmgroup.com/", webDriver.getCurrentUrl() );
+        System.out.println("---END---");
         webDriver.quit();
     }
 
