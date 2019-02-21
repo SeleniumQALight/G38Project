@@ -37,4 +37,34 @@ public class Login {
         webDriver.quit();
 
     }
+
+
+    @Test
+    public void invalidLogIn(){
+
+        File file = new File("./src/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+
+
+        WebDriver webDriver = new ChromeDriver();
+
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        webDriver.get("http://v3.test.itpmgroup.com");
+
+        webDriver.findElement(By.name("_username")).sendKeys("Alina");
+
+        webDriver.findElement(By.id("password")).sendKeys("906090");
+
+        webDriver.findElement(By.tagName("button")).click();
+
+        Assert.assertTrue("Login failed",
+                webDriver.findElement(By.xpath(".//button[@type='submit']")).isDisplayed());
+        Assert.assertTrue("Login failed",
+                webDriver.findElement(By.xpath(".//input[@id='password']")).isDisplayed());
+
+       // webDriver.quit();
+
+    }
 }
