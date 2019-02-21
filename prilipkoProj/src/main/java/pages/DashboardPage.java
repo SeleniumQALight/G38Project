@@ -19,8 +19,7 @@ public class DashboardPage {
     private By userName = By.xpath(".//li[@class='dropdown user user-menu']//span");
     private By logoutButton = By.xpath(".//a[@href='/logout']");
 
-    private By mainHeadline = By.xpath("h1");
-    private By welcomeMessageText = By.xpath("h3");
+    private By welcomeMessageText = By.xpath(".//h3");
 
     private By dictionaryButton = By.xpath(".//ul/li[@id='dictionary']");
     private By apparatButton = By.xpath(".//ul/li[@id='dictionary']//li[@id='apparat']");
@@ -30,5 +29,19 @@ public class DashboardPage {
 
     public void assertUserAvatar() {
         Assert.assertTrue("Avatar is not present",driver.findElement(userAvatar).isDisplayed());
+    }
+
+    public void assertText(String text) {
+        String welcomeMessage = driver.findElement(welcomeMessageText).getText();
+        Assert.assertEquals(text, welcomeMessage);
+    }
+
+    public void clickDictionaryButton() {
+        driver.findElement(dictionaryButton).click();
+    }
+
+    public DictionaryWorkersPage clickWorkersButton() {
+        driver.findElement(workersButton).click();
+        return new DictionaryWorkersPage(driver);
     }
 }
