@@ -42,7 +42,7 @@ public class LoginPage extends ParentPage {
     }
     public void clickOnButtonSubmit () {
         try {
-            webDriver.findElement(By.tagName("bitton")).click();
+            webDriver.findElement(By.tagName("button")).click();
             System.out.println("Button Submit was clicked ");
         } catch (Exception e) {
             System.out.println("Can not work with element" + e);
