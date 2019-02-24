@@ -25,10 +25,17 @@ public class Login {
         System.out.print("Site was opened");
 
         webDriver.findElement(By.name("_username")).sendKeys("Student");
-        webDriver.findElement(By.id("password")).sendKeys("909090");
+        webDriver.findElement(By.name("_password")).sendKeys("909090");
         webDriver.findElement(By.tagName("button")).click();
-        Assert.assertTrue("Avatar is not present", webDriver.findElement(By.xpath("//*[@class='pull-left image']")).isDisplayed());
-        webDriver.quit();
+       //  webDriver.findElement(By.className("breadcrumb")).click();
+        webDriver.findElement(By.className("navbar-custom-menu")).click();
+        webDriver.findElement(By.className("pull-left")).click();
+        webDriver.findElement(By.id("userProfileEdit_user_email")).clear();
+        webDriver.findElement(By.id("userProfileEdit_user_email")).sendKeys("Test");
+      //  webDriver.findElement(By.className("pull-right")).click();
+        // webDriver.findElement(By.xpath("//*[contains(text(), 'Copyright © 2016 ')]")).isDisplayed();
+        // Assert.assertTrue("Avatar is not present", webDriver.findElement(By.xpath("//*[@class='pull-left image']")).isDisplayed());
+        // webDriver.quit();
     }
 
 }
