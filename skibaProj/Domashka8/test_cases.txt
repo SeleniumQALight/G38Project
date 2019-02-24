@@ -1,191 +1,189 @@
-Страница логина
+Login page
 
-№1  Положительный кейс логина
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент "строка ввода" с именем "_username"
-4. Проверить, что в этой строке присутствует текст-подсказка "Email"
-5. Проверить, что в этой строке присутствует элемент "картинка в виде конверта"
-6. Ввести следующие символы в строку: Student
-7. Проверить,  что в строке присутствует текст "Student"
-8. Найти элемент строка ввода с именем "_password"
-9.  Проверить,  что в этой строке присутствует текст-подсказка "Password"
-10. Проверить, что в строке присутствует элемент "картинка в виде замка"
-11. Ввести следующие символы в строку: 909090
-12. Проверить, что в этой строке присутствуют символы "******"
-13. Найти элемент кнопка, которая содержит текст “Вход”
-14. Проверить цвет кнопки "синий" цвет текста кнопки "белый"
-15. Нажать на кнопку, которая содержит текст “Вход”
-16. Проверить URL : http://v3.test.itpmgroup.com/
-17. Найти в правом верхнем углу dropdown с текстом Student и картинкой /bundles/ap/adminlte/dist/img/avatar.png
+#1  Positive login case
+1. Follow the kink: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find textbox element "_username"
+4. Check that "Email" is present in this textbox
+5. Check that "Envelope Image" is present in this textbox
+6. Enter this text to textbox: Student
+7. Check that there is a "Student" in the textbox
+8. Find textbox element "_password"
+9.  Check that text "Password" is presetn in this textbox
+10. Check that "Lock Image" is present in this textbox
+11. Enter this text to textbox: 909090
+12. Check that there is a "******" in the textbox
+13. Find button element with “Login” text on it
+14. Check button colour "blue" button text colour "white"
+15. Click on "Login" button
+16. Check URL : http://v3.test.itpmgroup.com/
+17. In the upper right corner find dropdown with Student text and /bundles/ap/adminlte/dist/img/avatar.png on it
 
-№2  Проверка работы линка "Напомнить пароль" на странице логина
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент link с текстом “Напомнить пароль”
-4. Нажать на элемент link с текстом "Напомнить пароль"
-5. Проверить URL: http://v3.test.itpmgroup.com/login#
-(дальнейшие действия уточняются с таскменеджером)
+# 2 Checking the link "Remind password" on the login page
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element link with “Remind password” text
+4. Click on the link element with "Remind password" text
+5. Check URL: http://v3.test.itpmgroup.com/login#
+(further actions are specified with Task Manager)
 
-№3  Проверка работы линка "Зарегистрироваться" на странице логина
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент линк с текстом в нем "Зарегистрироваться"
-4. Нажать на элемент линк с текстом в нем "Зарегистрироваться"
-5. Проверить URL: http://v3.test.itpmgroup.com/register.html
-(дальнейшие действия уточняются с таскменеджером)
+# 3 Checking the "Register" link on the login page
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element link with "Register" text in it
+4. Click on the element link with "Register" text in it
+5. Check URL: http://v3.test.itpmgroup.com/register.html
+(further actions are specified with Task Manager)
 
-№4  Проверка основных элементов на странице логин
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти текс "Учет запчастей"
-4. Найти элемент таблица "login-box-body"
-5. В элемент таблица "login-box-body" найти текст: "Авторизация"
-6. В элемент таблица "login-box-body" найти поле ввода "_username"
-7. В элемент таблица "login-box-body" найти поле ввода "_password"
-8. В элемент таблица "login-box-body" найти кнопку с текстом "Вход"
-9. В элемент таблица "login-box-body" найти линк с текстом в нем "Напомнить пароль"
-10.В элемент таблица "login-box-body" найти линк с текстом в нем "Зарегистрироваться"
+# 4 Checking main elements on the login page
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find text "parts accounting"
+4. Find element table "login-box-body"
+5. In the element table "login-box-body" find the text: "Authorization"
+6. In the element of the table "login-box-body" find the input field "_username"
+7. In the element of the table "login-box-body" find the input field "_password"
+8. In the element table "login-box-body" find the button with the text "Login"
+9. In the element table "login-box-body" find a link with the text in it "Remind password"
+10. In the element table "login-box-body" find a link with the text in it "Register"
 
-№5  Негативный кейс пустые поля ввода нажатие на кнопку "Вход"
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти кнопку с текстом "Вход"
-4. Нажать на кнопку с текстом "Вход"
-(дальнейшие действия уточняются с таскменеджером)
+# 5 Negative case with empty input fields when pressing the "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find a button with the text "Login"
+4. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
 
-№6  Негативный кейс пустое поля ввода "Email" нажатие на кнопку "Вход"
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент строка ввода с именем "_username"
-4. Проверить, что в этой строке присутствует текст подсказка "Email"
-5. Проверить, что в этой строке присутствует элемент картинка в виде конверта
-6. Ввести следующие символы в строку "Student"
-7. Проверить, что в строке присутствует текст "Student"
-8. Найти кнопку с текстом "Вход"
-9. Нажать на кнопку с текстом "Вход"
-(дальнейшие действия уточняются с таскменеджером)
+# 6 Negative case with empty input fields "Email" click on "Login"
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find a button with the text "Login"
+9. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
 
-№7 Негативный кейс пустое поля ввода "Password" нажатие на кнопку "Вход"
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент строка ввода с именем "_password"
-4. Проверить, что в этой строке присутствует текст подсказка "Password"
-5. Проверить, что в строке присутствует элемент картинка в виде замка
-6. Ввести следующие символы в строку "909090"
-7. Проверить, что в этой строке присутствуют символы "******"
-8. Найти кнопку с текстом "Вход"
-9. Нажать на кнопку с текстом "Вход"
-(дальнейшие действия уточняются с таскменеджером)
+# 7 Negative case with empty input fields "Password" click on "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_password"
+4. Check that in this line there is a text hint "Password"
+5. Check that the line contains a picture element in the form of a lock.
+6. Enter the following characters in the line "909090"
+7. Check that in this line there are "******" characters
+8. Find a button with the text "Login"
+9. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
 
-№8  Негативный кейс неверный логин и пароль, нажатие на кнопку "Вход"
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент строка ввода с именем "_username"
-4. Проверить, что в этой строке присутствует текст подсказка "Email"
-5. Проверить, что в этой строке присутствует элемент картинка в виде конверта
-6. Ввести следующие символы в строку "Studen"
-7. Проверить, что в строке присутствует текст "Studen"
-8. Найти элемент строка ввода с именем "_password"
-9. Проверить, что в этой строке присутствует текст подсказка "Password"
-10. Проверить, что в строке присутствует элемент картинка в виде замка
-11. Ввести следующие символы в строку "90909"
-12. Проверить, что в этой строке присутствуют символы "*****"
-13. Найти кнопку с текстом "Вход"
-14. Нажать на кнопку с текстом "Вход"
-(дальнейшие действия уточняются с таскменеджером)
+# 8 Negative case with incorrect username and password, pressing the "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find element input line with the name "_password"
+9. Check that in this line there is a text hint "Password"
+10. Check that the line contains a picture element in the form of a lock.
+11. Enter the following characters in the string "90909"
+12. Check that in this line there are "*****" characters
+13. Find a button with the text "Login"
+14. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
 
-№9  Негативный кейс неверный логин нажатие на кнопку "Вход"
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. Проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент строка ввода с именем "_username"
-4. Проверить, что в этой строке присутствует текст подсказка "Email"
-5. Проверить, что в этой строке присутствует элемент картинка в виде конверта
-6. Ввести следующие символы в строку "Studen"
-7. Проверить, что в строке присутствует текст "Studen"
-8. Найти элемент строка ввода с именем "_password"
-9. Проверить, что в этой строке присутствует текст подсказка "Password"
-10. Проверить, что в строке присутствует элемент картинка в виде замка
-11. Ввести следующие символы в строку "909090"
-12. Проверить, что в этой строке присутствуют символы "******"
-13. Найти кнопку с текстом "Вход"
-14. Нажать на кнопку с текстом "Вход"
-(дальнейшие действия уточняются с таскменеджером)
+# 9 Negative Case with Incorrect Login Pressing the "Login" Button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find element input line with the name "_password"
+9. Check that in this line there is a text hint "Password"
+10. Check that the line contains a picture element in the form of a lock.
+11. Enter the following characters in the line "909090"
+12. Check that in this line there are "******" characters
+13. Find a button with the text "Login"
+14. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
 
-№10 Негативный кейс неверный пароль нажатие на кнопку "Вход"
-1. Перейти по ссылке: http://v3.test.itpmgroup.com/login
-2. проверить URL: http://v3.test.itpmgroup.com/login
-3. Найти элемент строка ввода с именем "_username"
-4. Проверить, что в этой строке присутствует текст подсказка "Email"
-5. Проверить, что в этой строке присутствует элемент картинка в виде конверта
-6. Ввести следующие символы в строку "Student"
-7. Проверить, что в строке присутствует текст "Student"
-8. Найти элемент строка ввода с именем "_password"
-9. Проверить, что в этой строке присутствует текст подсказка "Password"
-10. Проверить, что в строке присутствует элемент картинка в виде замка
-11. Ввести следующие символы в строку "90909"
-12. Проверить, что в этой строке присутствуют символы "*****"
-13. Найти кнопку с текстом "Вход"
-14. Нажать на кнопку с текстом "Вход"
-(дальнейшие действия уточняются с таскменеджером)
+# 10 Negative case with wrong password clicking the "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find element input line with the name "_password"
+9. Check that in this line there is a text hint "Password"
+10. Check that the line contains a picture element in the form of a lock.
+11. Enter the following characters in the line "90909"
+12. Check that in this line there are "*****" characters
+13. Find a button with the text "Login"
+14. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
 
+Main Page
+# 1 Main page elements
+1. Go to the main page (logged in)
+2. Find element "main-header"
+3. Find the "User Account" button in the upper right corner
+4. Find a picture in the "User Account"
+5. Find element drop-down list (burger) in the upper left corner
+6. Find element left menu "main-sidebar sidebar-offcanvas"
+7. Find the text of the title page "Home"
+8. At the top of the page, find the button with the text “Home”
+9. At the top of the page find the text “Home”
+10. Find the text “Welcome to the parts accounting system!”
+11. Find the line with the text “In order to enter data about suppliers, customers, employees, machines and reference data, go to the“ References ”.”
+12. Find the line with the text “If you want to enter data on the installation of new parts, go to the“ Installation ”section.”
+13. Find the line with the text “If you need to fill in the service data of the vending machine, go to the“ Maintenance ”section.”
+14. Find the line with the text “To enter data on the purchase, sale or return of spare parts, go to the“ Transactions ”section.”
+15. Find the line with the text “Reports on data on maintenance and storage of spare parts you can build in the“ Reports ”section.”
+16. In the footer, find the text “Copyright © 2016”
+17. In the footer, find a link with the text “ITPM Group”
 
-Главная страница
-№1 Основные элементы главной странницы
-1. Перейти на главную страницу (залогинится)
-2. Найти элемент "main-header"
-3. Найти в правом верхнем углу кнопку "User Account"
-4. Найти картинку в блоке "User Account"
-5. Найти элемент раскрывающийся список (гамбургер) в левом верхнем углу
-6. Найти элемент левое меню "main-sidebar sidebar-offcanvas"
-7. Найти текст названия страницы "Главная"
-8. В верхней части страницы найти кнопку с текстом “Домой”
-9. В верхней части страницы найти текст “ Главная”
-10. Найти текст «Добро пожаловать в систему учета запчастей!»
-11. Найти строку с текстом «Для того, чтобы внести данные о поставщиках, покупателях, сотрудниках, автоматах и справочных данных, перейдите в раздел «Справочники».»
-12. Найти строку с текстом «Если вы хотите внести данные об установке новых запчастей, перейдите в раздел «Установка».»
-13.  Найти строку с текстом «Если необходимо заполнить данные об обслуживании торгового автомата, перейдите в раздел «Обслуживание».»
-14. Найти строку с текстом «Для внесения данных о приобретении, продаже или возврате запчастей перейдите в раздел «Сделки».»
-15. Найти строку с текстом «Отчеты о данных по обслуживанию, хранению запчастей вы можете построить в разделе «Отчеты».»
-16. В футере найти текст «Copyright © 2016»
-17. В футере найти линк с текстом «ITPM Group»
+# 2 Account Item (burger)
+1. Go to the main page (log in)
+2. Find element left menu "main-sidebar sidebar-offcanvas"
+3. Find element drop-down list (burger) in the upper left corner
+4. Click on (burger)
+5. Check item left menu "main-sidebar sidebar-offcanvas"
 
-№2 Элемент учетной записи (гамбургер)
-1.Перейти на главную страницу (залогинится)
-2.Найти элемент левое меню "main-sidebar sidebar-offcanvas"
-3.Найти элемент раскрывающийся список (гамбургер) в левом верхнем углу
-4.Нажать на (гамбургер)
-5.Проверить элемент левое меню "main-sidebar sidebar-offcanvas"
+# 3 Account Items
+1. Go to the main page (log in)
+2.Find element left menu "main-sidebar sidebar-offcanvas"
+3. Find the text of the title of the left menu "Accounting for spare parts"
+4. Find the picture (user avatar) in the left menu
+5. Find user name (text Student)
+6.Check user status
+7.Check the presence of an element tab with the text “Home” in the left menu
+8.Check the presence of an element tab with a picture near the text “Home” in the left menu
+9.Check the presence of an element tab with the text “Dictionaries” in the left menu
+10.Check the presence of an element tab with a picture near the text “Dictionaries” in the left menu
+11.Check the presence of an element tab with the text “Maintenance” in the left menu
+12.Check the presence of an element tab with a picture next to the text “Maintenance” in the left menu
+13.Check the presence of the element tab with the text "Installation" in the left menu
+14.Check the presence of an element tab with a picture near the text “Installation” in the left menu
+15.Check the presence of an element tab with the text “Transactions” in the left menu
+16.Check the presence of an element tab with a picture near the text “Transactions” in the left menu
+17.Check the presence of an element tab with the text “Report” in the left menu
+18.Check the presence of an element tab with a picture near the text “Report” in the left menu
 
-№3 Элементы учетной записи
-1.Перейти на главную страницу (залогинится)
-2.Найти элемент левое меню "main-sidebar sidebar-offcanvas"
-3.Найти текст заглавления левого меню «Учет запчастей»
-4.Найти картинку (аватар пользователя) в левом меню
-5.Найти имя пользователя (текст Student)
-6.Проверить статус пользователся
-7.Проверить наличие элемента вкладка с текстом «Главная» в левом меню
-8.Проверить наличие элемента вкладка с картинкой возле текста «Главная» в левом меню
-9.Проверить наличие элемента вкладка с текстом «Словари» в левом меню
-10.Проверить наличие элемента вкладка с картинкой возле текста «Словари» в левом меню
-11.Проверить наличие элемента вкладка с текстом «Обслуживание» в левом меню
-12.Проверить наличие элемента вкладка с картинкой возле текста «Обслуживание» в левом меню
-13.Проверить наличие элемента вкладка с текстом «Установка» в левом меню
-14.Проверить наличие элемента вкладка с картинкой возле текста «Установка» в левом меню
-15.Проверить наличие элемента вкладка с текстом «Сделки» в левом меню
-16.Проверить наличие элемента вкладка с картинкой возле текста «Сделки» в левом меню
-17.Проверить наличие элемента вкладка с текстом «Отчет» в левом меню
-18.Проверить наличие элемента вкладка с картинкой возле текста «Отчет» в левом меню
-
-
-№4 Информация о пользователе
-1. Перейти на главную страницу (залогинится)
-2. Найти в правом верхнем углу кнопку «User Account»
-3. Найти картинку в блоке «User Account»  (аватарку пользователя)
-3. Нажать на кнопку «User Account»
-4. Проверить, что раскрывается выпадающее меню  с краткой информацией о пользователе
-5. Проверить наличие картинки (аватарки) в выпадающем меню
-6. найти текст имя пользователя «Student »
-7. найти текст «Зарегистрирован 06.2016»
-8. Найти кнопку «Профиль»
-9. Найти кнопку «Выход»
+# 4 User information
+1. Go to the main page (logged in)
+2. Find the “User Account” button in the upper right corner
+3. Find a picture in the “User Account” block (user avatar)
+3. Click on the “User Account” button
+4. Check that a drop-down menu opens with brief information about the user.
+5. Check the availability of pictures (avatars) in the drop-down menu
+6. find the text of the user name "Student"
+7. find the text “Registered 06.2016”
+8. Find the “Profile” button
+9. Find the “Exit” button

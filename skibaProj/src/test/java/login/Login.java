@@ -31,6 +31,33 @@ public class Login {
         System.out.println("Button clicked");
         Assert.assertTrue("No avatar was displayed", webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed());
 
+
+    }
+
+    @Test
+    public void invalidLogin(){
+
+        File file = new File("./src/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+        WebDriver webDriver = new ChromeDriver();
+
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        webDriver.get("http://v3.test.itpmgroup.com");
+        System.out.println("Site was opened");
+
+        try {
+            webDriver.findElement(By.name("_username")).sendKeys("Student1");
+            System.out.println("Entered username");
+            webDriver.findElement(By.id("password")).sendKeys("909090");
+            System.out.println("Entered password");
+            webDriver.findElement(By.tagName("button")).click();
+            System.out.println("Button clicked");
+            Assert.assertFalse("Login success", webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed());
+        }catch (Exception e) {
+            System.out.println("No avatar was displayed: "+e);
+        }
         webDriver.quit();
     }
 }
