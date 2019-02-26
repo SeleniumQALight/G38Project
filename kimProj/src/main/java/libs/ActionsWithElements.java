@@ -1,11 +1,13 @@
 package libs;
 
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ActionsWithElements {
     WebDriver webDriver;
+    Logger logger = Logger.getLogger(getClass()); //инициализировали логер
 
     public ActionsWithElements(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -15,7 +17,7 @@ public class ActionsWithElements {
         try {
             element.clear();
             element.sendKeys(text);
-            System.out.println(text + "was input into element");
+            logger.info( text + "was input into element");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -26,14 +28,14 @@ public class ActionsWithElements {
      * @param e
      */
     private void printErrorAndStopTest(Exception e) {
-        System.out.println("Can not work with element" + e);
+        logger.error("Can not work with element" + e);
         Assert.fail("Can not work with element" + e);
     }
 
     public void clickOnElement(WebElement element) {
         try{
             element.click();
-            System.out.println("Element was clicked");
+            logger.info("Element was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
