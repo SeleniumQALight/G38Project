@@ -1,0 +1,36 @@
+#http://v3.test.itpmgroup.com/login
+
+
+#Аuthorization
+#Email .//input[@name='_username']
+#Password .//input[@id='password']
+#Login button .//button[@type='submit']
+#Remind password .//a[@href='#']
+#Register  .//a[@href='register.html']
+
+#Main Page
+#Учет запчастей  .//a[@href ='#' and @class='logo']
+#Кнопка (спрятать меню)  .//a[@href ='#' and @class='sidebar-toggle']
+#Аватар в хеддере  .//img[@class='user-image']
+#Имя пользователя в хеддере  .//a/span[@class = 'hidden-xs' and text()='Student']
+#Аватар в меню  .//div/img[@class='img-circle']
+#Имя пользователя в меню  .//div/p[text() = 'Student']
+#Статус пользователя  .//i[@class = 'fa fa-circle text-success']
+
+#Главная  .//a[@href = '/dashboard']
+
+#Словари  .//li[@id = 'dictionary' and @class = 'treeview']
+#Словари/Аппарат  .//li/a[@href= '/dictionary/apparat']
+#Словари/Сотрудники  .//li/a[@href= '/dictionary/workers']
+#Словари/Типы запчастей  .//li/a[@href= '/dictionary/spare_type']
+#Словари/Запчасти  .//li/a[@href= '/dictionary/spares']
+#Словари/Стороны сделок  .//li/a[@href= '/dictionary/providers']
+#Словари/Типы сделок
+
+#Обслуживание  .//li/a[@href= '/dictionary/service']
+#Установка  .//li/a[@href= '/dictionary/installation']
+#Сделки  .//li/a[@href= '/deal']
+#Отчет  .//li/a[@href= '/statistic']
+
+#Кнопка "Домой"  .//li/a[@href= '/']
+#Копипаст  .//a[@href= 'http://itpmgroup.com']
