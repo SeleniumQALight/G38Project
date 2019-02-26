@@ -1,12 +1,4 @@
-package pages;
+package parentTest;
 
-import org.openqa.selenium.WebDriver;
-
-public class ParentPage {
-    WebDriver webDriver;
-
-
-    public ParentPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
+public class ParentTest {
 }
