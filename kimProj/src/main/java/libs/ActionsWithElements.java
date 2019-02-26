@@ -21,8 +21,21 @@ public class ActionsWithElements {
         }
     }
 
+    /**
+     * Stop test and print ERROR
+     * @param e
+     */
     private void printErrorAndStopTest(Exception e) {
         System.out.println("Can not work with element" + e);
         Assert.fail("Can not work with element" + e);
+    }
+
+    public void clickOnElement(WebElement element) {
+        try{
+            element.click();
+            System.out.println("Element was clicked");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 }

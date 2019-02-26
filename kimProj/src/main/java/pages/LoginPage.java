@@ -32,6 +32,8 @@ public class LoginPage extends ParentPage{
 
     public void enterTextInToInputLogin(String login) {
 
+        actionsWithElements.enterTextInToElement(inputLogin, login);
+
 //        try {
 //            inputLogin.clear();
 //            inputLogin.sendKeys(login);
@@ -43,23 +45,10 @@ public class LoginPage extends ParentPage{
     }
 
     public void enterTextInToPassword(String password) {
-        try {
-            inputPass.clear();
-            inputPass.sendKeys(password);
-            System.out.println(password + " was inputed");
-        } catch(Exception e) {
-            System.out.println("Can not work with element" + e);
-            Assert.fail("Can not work with element");
-        }
+        actionsWithElements.enterTextInToElement(inputPass, password);
     }
 
     public void clickOnButtonSubmit() {
-        try {
-            button.click();
-            System.out.println("Button Submit was clicked");
-        } catch(Exception e) {
-            System.out.println("Can not work with element" + e);
-            Assert.fail("Can not work with element");
-        }
+        actionsWithElements.clickOnElement(button);
     }
 }
