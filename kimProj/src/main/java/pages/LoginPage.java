@@ -31,14 +31,15 @@ public class LoginPage extends ParentPage{
     }
 
     public void enterTextInToInputLogin(String login) {
-        try {
-            inputLogin.clear();
-            inputLogin.sendKeys(login);
-            System.out.println(login + " was input ");
-        } catch (Exception e){
-            System.out.println("Can not work with element" + e);
-            Assert.fail("Can not work with element");
-        }
+
+//        try {
+//            inputLogin.clear();
+//            inputLogin.sendKeys(login);
+//            System.out.println(login + " was input ");
+//        } catch (Exception e){
+//            System.out.println("Can not work with element" + e);
+//            Assert.fail("Can not work with element");
+//        }
     }
 
     public void enterTextInToPassword(String password) {
