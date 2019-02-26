@@ -25,15 +25,18 @@ public class ParentTest {
 
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+        WebDriver driver = new ChromeDriver();
+
         //ChromeDriverManager.getInstance().setup();
         //ChromeOptions options = new ChromeOptions();
         //options.addArguments("window-size=1920,1080");
         //DesiredCapabilities cap = DesiredCapabilities.chrome();
-       // cap.setCapability(ChromeOptions.CAPABILITY, options);
-       WebDriver driver = new ChromeDriver();
+        //cap.setCapability(ChromeOptions.CAPABILITY, options);
+        //webDriver = new ChromeDriver(cap);
 
 
-//         webDriver = new ChromeDriver(cap);
+
+
 
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
