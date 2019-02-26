@@ -1,0 +1,78 @@
+1. Check that login page element is loaded:
+*STR:*
+# Open login page.
+
+*ER:*
+- e-mail filed is loaded;
+- password field is loaded;
+- submit button is loaded;
+
+2. Check that autorization is successful:
+*STR:*
+# Open login page.
+# Imput email in email field.
+# Imput passowrd in a password field.
+# Click submit button.
+
+*ER:*
+User is authorization  successfully
+- Avatar is loaded;
+- Copyright is loaded;
+- Bread crumbs is loaded;
+
+3. Check of logout possibility:
+# Open login page.
+# Imput email in email field.
+# Imput passowrd in a password field.
+# Click submit button.
+# Click drop down user menu.
+# Click logout button
+
+*ER:*
+User is logout.
+- e-mail filed is loaded;
+- password field is loaded;
+- submit button is loaded;
+
+
+4. Check profile elements.
+*STR:*
+# Open login page.
+# Imput email in email field.
+# Imput passowrd in a password field.
+# Click submit button.
+# Click drop down user menu.
+# Click profile button
+
+*ER:*
+Profile is opened.
+- Email filed is loaded;
+- User field is loaded;
+- Login field is loaded;
+- Pass field is loaded;
+- Conform pass
+- Save button is loaded;
+- Delete button is loaded;
+
+5. Check change password possibility
+*STR:*
+# Open login page.
+# Imput email in email field.
+# Imput passowrd in a password field.
+# Click submit button.
+# Click drop down user menu.
+# Click profile button.
+# Imput password ia pass field.
+# Imput same password in confirm field.
+# Click save Button
+# Click drop down user menu.
+# Click logout button
+# Imput email in email field.
+# Imput passowrd in a password field.
+# Click submit button.
+
+*ER:*
+User is authorization with new pass successfully
+- Avatar is loaded;
+- Copyright is loaded;
+- Bread crumbs is loaded;
