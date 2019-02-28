@@ -86,6 +86,7 @@
       </plugins>
     </pluginManagement>
 
+    <!--log4j -->
     <resources>
       <resource>
         <directory>src/resources</directory>
