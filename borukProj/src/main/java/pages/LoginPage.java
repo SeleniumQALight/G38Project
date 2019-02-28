@@ -1,7 +1,7 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
+//import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,9 +24,9 @@ public class LoginPage extends ParentPage{
     public void openPage() {
         try{
             webDriver.get("http://v3.test.itpmgroup.com");
-            System.out.println("Login page was opened");
+            logger.info("Login page was opened");
         } catch (Exception e){
-            System.out.println("Can not open Login page " + e); // for logger
+            logger.error("Can not open Login page " + e); // for logger
             Assert.fail("Can not open Login page " + e); // for report
         }
     }
@@ -55,17 +55,25 @@ public class LoginPage extends ParentPage{
 //        }
         actionsWithOurElements.enterTextInToElement(inputPass, pass);
     }
+
     public void clickOnButtonSubmit (){
         try{
             button.click();
-            System.out.println("Button Submit was clicked");
+            logger.info("Button Submit was clicked");
         }catch (Exception e){
-            System.out.println("Can not work with element " +e);
+            logger.error("Can not work with element " +e);
             Assert.fail("Can not open Login page " + e);
         }
     }
+
     public void clickOnElement (){
         actionsWithOurElements.clickOnElement(button);
+    }
 
+    public void login(String login, String password) {
+        openPage();
+        enterTextInToInputLogin(login);
+        enterTextInToInputPass(password);
+        clickOnButtonSubmit();
     }
 }
