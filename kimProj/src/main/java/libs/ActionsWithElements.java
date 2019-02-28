@@ -40,4 +40,15 @@ public class ActionsWithElements {
             printErrorAndStopTest(e);
         }
     }
+
+    public boolean isElementDisplayed(WebElement element) {
+        try {
+            boolean isDisplayed = element.isDisplayed();
+            logger.info("Element is displayed -> " + isDisplayed);
+            return isDisplayed;
+        } catch (Exception e) {
+            logger.info("Element is displayed -> false + "+ e);
+            return false;
+        }
+    }
 }

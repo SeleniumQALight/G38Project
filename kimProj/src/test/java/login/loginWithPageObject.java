@@ -17,4 +17,6 @@ public class loginWithPageObject extends ParentTest {
                 homePage.isAvatarPresent()
         );
     }
+
+
 }
