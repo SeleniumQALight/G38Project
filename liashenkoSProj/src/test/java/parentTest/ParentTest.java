@@ -1,5 +1,6 @@
 package parentTest;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,7 +13,9 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
+
     WebDriver webDriver;
+    Logger logger = Logger.getLogger(getClass());
    protected LoginPage loginPage;
    protected HomePage homePage;
     @Before

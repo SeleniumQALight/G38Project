@@ -3,11 +3,22 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage{
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
+
+    @FindBy(name = "_username") // поиск
+    private WebElement inputLogin; //объявление веб элемента
+
+    @FindBy(id = "password")
+    private WebElement inputPass;
+
+    @FindBy(tagName = "button")
+    private WebElement button;
 
     public void openPage() {
         try {
@@ -20,34 +31,24 @@ public class LoginPage extends ParentPage{
     }
 
     public void enterTextInToInputLogin(String login) {
-        try {
-            webDriver.findElement(By.name("_username")).clear();
-            webDriver.findElement(By.name("_username")).sendKeys(login);
-            System.out.println(login + " was input ");
-        } catch (Exception e){
-            System.out.println("Can not work with element" + e);
-            Assert.fail("Can not work with element");
-        }
+
+        actionsWithElements.enterTextInToElement(inputLogin, login);
+
+//        try {
+//            inputLogin.clear();
+//            inputLogin.sendKeys(login);
+//            System.out.println(login + " was input ");
+//        } catch (Exception e){
+//            System.out.println("Can not work with element" + e);
+//            Assert.fail("Can not work with element");
+//        }
     }
 
     public void enterTextInToPassword(String password) {
-        try {
-            webDriver.findElement(By.id("password")).clear();
-            webDriver.findElement(By.id("password")).sendKeys(password);
-            System.out.println(password + " was inputed");
-        } catch(Exception e) {
-            System.out.println("Can not work with element" + e);
-            Assert.fail("Can not work with element");
-        }
+        actionsWithElements.enterTextInToElement(inputPass, password);
     }
 
     public void clickOnButtonSubmit() {
-        try {
-            webDriver.findElement(By.tagName("button")).click();
-            System.out.println("Button Submit was clicked");
-        } catch(Exception e) {
-            System.out.println("Can not work with element" + e);
-            Assert.fail("Can not work with element");
-        }
+        actionsWithElements.clickOnElement(button);
     }
 }
