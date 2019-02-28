@@ -2,8 +2,9 @@ package pages;
 
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 
 public class LoginPage extends ParentPage {
@@ -12,10 +13,14 @@ public class LoginPage extends ParentPage {
         super(driver);
     }
 
+    @FindBy(xpath = ".//input[@placeholder='Email']")
+    private WebElement emailField;
 
-    private By emailField = By.xpath(".//input[@placeholder='Email']");
-    private By passwordField = By.xpath(".//input[@type='password']");
-    private By submitButton = By.xpath(".//button[@type='submit']");
+    @FindBy(xpath = ".//input[@type='password']")
+    private WebElement passwordField;
+
+    @FindBy(xpath = ".//button[@type='submit']")
+    private WebElement submitButton;
 
 
     public void openPage() {
@@ -29,35 +34,14 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterTextInToInputLogin(String login) {
-        try {
-            driver.findElement(emailField).clear();
-            driver.findElement(emailField).sendKeys(login);
-            System.out.println(login + " was input");
-        } catch (Exception e) {
-            System.out.println("Can not work with element");
-            Assert.fail("Can not work with element " + e);
-        }
-
+        actionsWithOurElements.enterTextInToElement(emailField,login);
     }
 
     public void enterTextInToInputPassword(String password) {
-        try {
-            driver.findElement(passwordField).clear();
-            driver.findElement(passwordField).sendKeys(password);
-            System.out.println(password + " was input");
-        } catch (Exception e) {
-            System.out.println("Can not work with element");
-            Assert.fail("Can not work with element " + e);
-        }
+        actionsWithOurElements.enterTextInToElement(passwordField,password);
     }
 
     public void clickOnSubmitButton() {
-        try {
-            driver.findElement(submitButton).click();
-            System.out.println("Button Submit was clicked");
-        } catch (Exception e) {
-            System.out.println("Can not work with element");
-            Assert.fail("Can not work with element " + e);
-        }
+        actionsWithOurElements.clickOnElement(submitButton);
     }
 }
