@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.net.PasswordAuthentication;
+import java.util.logging.Logger;
 
 public class LoginPage extends ParentPage {
 
@@ -52,9 +53,9 @@ public class LoginPage extends ParentPage {
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
-            System.out.println("Login page was opened");
+            logger.info ("Login page was opened");
         }catch (Exception e){
-            System.out.println("Cannot open login page" + e);
+            logger.error("Cannot open login page" + e);
             Assert.fail ("Can not open page");
 
         }
@@ -72,5 +73,12 @@ public class LoginPage extends ParentPage {
 //
         actionsWithOurElements.clickOnElement (button);
        }
+
+    public void login(String login, String password) {
+        openPage();
+        enterTextInToinputLogin(login);
+        enterTextInToinputPass(password);
+        clickOnButtonSubmit();
     }
+}
 
