@@ -25,15 +25,15 @@ public class LoginPage extends ParentPage {
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
-            System.out.println("Login page was opened");
+            logger.info("Login page was opened");
         } catch (Exception e) {
-            System.out.println("Can not open login page " + e);
+            logger.error("Can not open login page " + e);
             Assert.fail("Can not open login page " + e);
         }
     }
 
     public void enterTextInToInputLogin(String login) {
-             actionsWithOurElements.enterTextInToElement(inputLogin,login);
+        actionsWithOurElements.enterTextInToElement(inputLogin, login);
 
 //        try {
 //            inputLogin.clear();
@@ -46,7 +46,7 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterTextInToInputPass(String pass) {
-        actionsWithOurElements.enterTextInToElement(inputPass,pass);
+        actionsWithOurElements.enterTextInToElement(inputPass, pass);
 //        try {
 //            inputPass.clear();
 //            inputPass.sendKeys(pass);
@@ -66,5 +66,13 @@ public class LoginPage extends ParentPage {
 //            System.out.println("Can not work with element" + e);
 //            Assert.fail("Can not work with element" + e);
 //        }
+    }
+
+    public void login(String login, String passWord) {
+        openPage();
+        enterTextInToInputLogin(login);
+        enterTextInToInputPass(passWord);
+        clickOnButtonSubmit();
+
     }
 }
