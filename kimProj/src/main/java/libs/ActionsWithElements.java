@@ -72,4 +72,6 @@ public class ActionsWithElements {
             printErrorAndStopTest(e);
         }
     }
+
+    //Select value in dropdown by UI
 }
