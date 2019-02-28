@@ -2,6 +2,7 @@ package pages;
 
 
 import libs.ActionsWithOurElements;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,6 +13,8 @@ public class ParentPage {
 
     protected LoginPage loginPage;
     protected ActionsWithOurElements actionsWithOurElements;
+
+    Logger logger = Logger.getLogger(getClass());
 
     public ParentPage(WebDriver driver) {
         this.driver = driver;

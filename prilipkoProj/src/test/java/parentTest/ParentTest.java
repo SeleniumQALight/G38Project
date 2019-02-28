@@ -42,4 +42,8 @@ public class ParentTest {
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message,true,actualResult);
     }
+
+    protected void checkExpectedResult(String expectedText, String actualResult) {
+        Assert.assertEquals(expectedText, actualResult);
+    }
 }

@@ -16,6 +16,22 @@ public class LoginWithPageObject extends ParentTest {
         loginPage.enterTextInToInputPassword("909090");
         loginPage.clickOnSubmitButton();
 
-        checkExpectedResult("Avatar is not present",homePage.isAvatarPresent());
+        checkExpectedResult(
+                "Avatar is not present",
+                homePage.isAvatarPresent());
+    }
+
+    @Test
+    public void invalidLogin() {
+
+        loginPage.login("test", "test");
+
+        checkExpectedResult(
+                "Avatar should not be present",
+                !homePage.isAvatarPresent());
+
+        checkExpectedResult(
+                "Учет запчастей",
+                loginPage.getMainHeadline());
     }
 }
