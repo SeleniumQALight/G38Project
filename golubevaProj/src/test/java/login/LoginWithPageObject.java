@@ -19,4 +19,13 @@ public class LoginWithPageObject extends PerentTest{
 
     }
 
+    @Test
+    public void inValidLogin(){
+
+        loginPage.login("tttttt", "909090");
+        checkExpectedResult("Avatar should not be present",
+                !homePage.isAvatarPresent());
+
+    }
+
 }

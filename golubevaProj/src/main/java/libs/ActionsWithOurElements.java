@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -22,6 +23,8 @@ Logger logger =  Logger.getLogger(getClass());
 
         }
 
+
+
     }
 
     private void printErrorAndStopTest(Exception e) {
@@ -32,9 +35,43 @@ Logger logger =  Logger.getLogger(getClass());
     public void click(WebElement element) {
         try{
             element.click();
-            logger.error("Element was cliked");
+            logger.info("Element was cliked");
         }catch (Exception e){
             printErrorAndStopTest(e);
         }
     }
+
+    public boolean isElementPresent(WebElement webElement) {
+        try {
+            boolean isDisplayed = webElement.isDisplayed();
+            logger.info("Element is displayed ->" + isDisplayed);
+            return isDisplayed;
+        } catch (Exception e) {
+            logger.info("Element is displayed -> false");
+            return false;
+        }
+    }
+
+    public void selectTextInDrobDown(WebElement element, String text){
+        try {
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
+            logger.info(text + "Was Selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+
+    }
+    public void selectTextInValue(WebElement element, String value){
+        try {
+            Select select = new Select(element);
+            select.selectByValue(value);
+            logger.info(value + "Was Selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+
+    }
+
+
 }

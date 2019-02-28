@@ -1,5 +1,6 @@
 package perentTest;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +16,7 @@ public class PerentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    Logger loger = Logger.getLogger(getClass());
 
     @Before
     public void setUp(){
