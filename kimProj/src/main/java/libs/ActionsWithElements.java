@@ -74,4 +74,5 @@ public class ActionsWithElements {
     }
 
     //Select value in dropdown by UI
+    // checkbox.isSeleted -3 statuses method "if" Webelement element, Strint status
 }
