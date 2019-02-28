@@ -15,8 +15,10 @@ public class LoginPage extends ParentPage {
 
     @FindBy(name = "_username")
     private WebElement inputLogin;
+
     @FindBy(id = "password")
     private WebElement inputPassword;
+
     @FindBy(tagName = "button")
     private WebElement button;
 
