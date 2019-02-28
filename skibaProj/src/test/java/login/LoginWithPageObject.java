@@ -22,7 +22,7 @@ public class LoginWithPageObject extends ParentTest {
         loginPage.enterTextInToInputPass("909090");
         loginPage.clickOnButtonSubmit();
 
-        checkExpectedResult("Avatar is not present", homePage.isAvatarPresent());
+        checkExpectedResult("Avatar is not present", !homePage.isAvatarPresent());
 
     }
 }
