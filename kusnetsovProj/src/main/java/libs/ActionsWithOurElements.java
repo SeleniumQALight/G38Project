@@ -17,7 +17,7 @@ public class ActionsWithOurElements {
     public void enterTextInToElement(WebElement element, String text) {
         try {
             element.clear();
-            element.sendKeys();
+            element.sendKeys(text);
             logger.info(text + " was input in toelement");
         } catch (Exception e) {
             printErrorAndStopTest(e);
