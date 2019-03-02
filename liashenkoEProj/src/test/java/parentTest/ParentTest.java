@@ -2,6 +2,7 @@ package parentTest;
 
 import mainPack.pages.HomePage;
 import mainPack.pages.LoginPages;
+import mainPack.pages.SettingPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +16,7 @@ public class ParentTest {
     WebDriver webDriver;
     protected LoginPages loginPages;
     protected HomePage homePage;
+    protected SettingPage settingPage;
 
     @Before
     public void setUp(){
