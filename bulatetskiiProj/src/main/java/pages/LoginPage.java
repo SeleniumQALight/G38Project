@@ -23,9 +23,9 @@ public class LoginPage extends ParentPage{
     public void openPage() {
         try{
             webDriver.get("http://v3.test.itpmgroup.com");
-            System.out.println("Login page was opened");
+            logger.info("Login page was opened");
         } catch (Exception e){
-            System.out.println("Can not open Login page " + e); // for logger
+            logger.info("Can not open Login page " + e); // for logger
             Assert.fail("Can not open Login page " + e); // for report
         }
     }
@@ -44,5 +44,13 @@ public class LoginPage extends ParentPage{
 
     public void clickOnButtonSubmit (){
          actionsWithOurElements.clickOnElement (button);
+    }
+
+    public void login(String login, String password) {
+        openPage();
+        enterTextInToInputLogin(login);
+        enterTextInToInputPass(password);
+        clickOnButtonSubmit();
+
     }
 }
