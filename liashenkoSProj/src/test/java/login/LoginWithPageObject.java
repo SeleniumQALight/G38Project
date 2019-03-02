@@ -22,4 +22,11 @@ public class LoginWithPageObject extends ParentTest {
         loginPage.login("tttt","909090");
         checkExpectedResult("Avatar should not be present", !homePage.isAvatarPresent());
     }
+
+    @Test
+    public  void selectDeal () {
+    loginPage.login("Student","909090");
+    dealPage.clickOnButtonDeal();
+
+    }
 }

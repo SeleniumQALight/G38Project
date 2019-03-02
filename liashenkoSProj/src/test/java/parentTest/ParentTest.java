@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.DealPage;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -18,6 +19,7 @@ public class ParentTest {
     Logger logger = Logger.getLogger(getClass());
    protected LoginPage loginPage;
    protected HomePage homePage;
+   protected DealPage dealPage;
     @Before
     public void setUp(){
         File file = new File("./src/drivers/chromedriver.exe");
