@@ -2,6 +2,7 @@ package createApparat;
 
 
 import org.junit.Test;
+
 import parentTest.ParentTest;
 
 
@@ -17,8 +18,8 @@ public class CreateApparat extends ParentTest {
 
         apparatPage.clickAddButton();
 
-        apparatEditPage.inputApparatNumber("");
-        apparatEditPage.inputApparatComment("");
+        apparatEditPage.inputApparatNumber("6237");
+        apparatEditPage.inputApparatComment("Mitsubishi Lancer, SN: " + formatForDateNow.format(dateNow));
         apparatEditPage.clickOnSubmitButton();
     }
 }

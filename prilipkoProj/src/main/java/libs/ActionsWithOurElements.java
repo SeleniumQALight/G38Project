@@ -2,7 +2,9 @@ package libs;
 
 
 import org.apache.log4j.Logger;
+
 import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +21,6 @@ public class ActionsWithOurElements {
         this.driver = driver;
     }
 
-    // *********************************************************************************************************************
     public void enterTextInToElement(WebElement element, String text) {
         try {
             element.clear();
@@ -50,7 +51,7 @@ public class ActionsWithOurElements {
         }
     }
 
-    // TODO. Работа с селектами.
+    // SELECT
     public void selectValueInDropdown(WebElement webElement, String value) {
         try {
             Select select = new Select(webElement);
@@ -61,6 +62,7 @@ public class ActionsWithOurElements {
         }
     }
 
+    // SELECT
     public void selectVisibleTextInDropdown(WebElement webElement, String text) {
         try {
             Select select = new Select(webElement);
@@ -71,6 +73,7 @@ public class ActionsWithOurElements {
         }
     }
 
+    // SELECT
     public void selectTextInDropdownByUi(WebElement WebElement, String text) {
         try {
             WebElement.click();
@@ -81,28 +84,23 @@ public class ActionsWithOurElements {
         }
     }
 
-    // TODO. Работа с Чекбоксами. Дома сделать.
+    // CHECKBOX
     public void setStatusToCheckbox(WebElement webElement, String status) {
-        if(webElement.isSelected() && "checked".equals(status)){
-            logger.info("Checkbox has been activated");
-        } else if(!webElement.isSelected() && "checked".equals(status)) {
-            webElement.click();
-            logger.info("Checkbox activated");
-        } else if(webElement.isSelected() && "null".equals(status)) {
-            webElement.click();
-            logger.info("Checkbox deactivated");
-        } else if(!webElement.isSelected() && "null".equals(status)) {
-            logger.info("Checkbox has been deactivated");
+        try{
+            if(webElement.isSelected() && "checked".equals(status)){
+                logger.info("Checkbox has been activated");
+            } else if(!webElement.isSelected() && "checked".equals(status)) {
+                webElement.click();
+                logger.info("Checkbox activated");
+            } else if(webElement.isSelected() && "null".equals(status)) {
+                webElement.click();
+                logger.info("Checkbox deactivated");
+            } else if(!webElement.isSelected() && "null".equals(status)) {
+                logger.info("Checkbox has been deactivated");
+            }
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
         }
-
-
-
-//        if(webElement.getAttribute(status) != null) {
-//            logger.info("Checkbox has been activated");
-//        } else {
-//            webElement.click();
-//            logger.info("Checkbox activated");
-//        }
     }
 // *********************************************************************************************************************
     private void printErrorAndStopTest(Exception e) {

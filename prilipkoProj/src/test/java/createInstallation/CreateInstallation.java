@@ -2,13 +2,14 @@ package createInstallation;
 
 
 import org.junit.Test;
+
 import parentTest.ParentTest;
 
 
 public class CreateInstallation extends ParentTest {
 
     @Test
-    public void createInstallation() throws InterruptedException {
+    public void createInstallation(){
 
         loginPage.login(LOGIN, PASSWORD);
 
@@ -42,6 +43,5 @@ public class CreateInstallation extends ParentTest {
         installationEditPage.selectInstallationApparat(APPARAT);
         installationEditPage.selectWorker(WORKER_MIDDLE_NAME);
         installationEditPage.clickOnSubmitButton();
-        Thread.sleep(5000);
     }
 }

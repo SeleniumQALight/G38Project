@@ -4,9 +4,10 @@ package parentTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+
 import pages.*;
 
 import java.io.File;
@@ -18,8 +19,6 @@ import java.util.concurrent.TimeUnit;
 public class ParentTest {
 
     private WebDriver driver;
-
-
 
     protected Date dateNow = new Date();
     protected SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyyMMddhhmmss");
@@ -68,9 +67,5 @@ public class ParentTest {
 
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message,true,actualResult);
-    }
-
-    protected void checkExpectedResult(String expectedText, String actualResult) {
-        Assert.assertEquals(expectedText,actualResult);
     }
 }
