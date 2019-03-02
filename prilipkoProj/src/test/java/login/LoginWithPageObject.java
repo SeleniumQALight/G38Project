@@ -24,14 +24,10 @@ public class LoginWithPageObject extends ParentTest {
     @Test
     public void invalidLogin() {
 
-        loginPage.login("test", "test");
+        loginPage.login("Learner", "090909");
 
         checkExpectedResult(
                 "Avatar should not be present",
                 !homePage.isAvatarPresent());
-
-        checkExpectedResult(
-                "Учет запчастей",
-                loginPage.getMainHeadline());
     }
 }

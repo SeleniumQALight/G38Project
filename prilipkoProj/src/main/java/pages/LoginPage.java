@@ -19,19 +19,6 @@ public class LoginPage extends ParentPage {
     @FindBy(xpath = ".//input[@type='password']")
     private WebElement passwordField;
 
-    @FindBy(xpath = ".//button[@type='submit']")
-    private WebElement submitButton;
-
-    @FindBy(xpath = ".//b")
-    private WebElement mainHeadline;
-
-
-    public void login(String login, String password) {
-            openPage();
-            enterTextInToInputLogin(login);
-            enterTextInToInputPassword(password);
-            clickOnSubmitButton();
-    }
 
     public void openPage() {
         try {
@@ -43,15 +30,6 @@ public class LoginPage extends ParentPage {
         }
     }
 
-    public String getMainHeadline() {
-        try {
-            return mainHeadline.getText();
-        } catch (Exception e) {
-            Assert.fail("Cannot visible");
-        }
-        return null;
-    }
-
     public void enterTextInToInputLogin(String login) {
         actionsWithOurElements.enterTextInToElement(emailField,login);
     }
@@ -60,7 +38,10 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.enterTextInToElement(passwordField,password);
     }
 
-    public void clickOnSubmitButton() {
-        actionsWithOurElements.clickOnElement(submitButton);
+    public void login(String login, String password) {
+        openPage();
+        enterTextInToInputLogin(login);
+        enterTextInToInputPassword(password);
+        clickOnSubmitButton();
     }
 }

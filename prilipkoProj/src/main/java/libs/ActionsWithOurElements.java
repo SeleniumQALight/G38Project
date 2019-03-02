@@ -3,6 +3,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -49,8 +50,8 @@ public class ActionsWithOurElements {
         }
     }
 
-    // TODO. Работа с селектами. Добавить метод для эмуляции действия пользователя, и по видимому тексту в селекте.
-    public void selectValueInDropown(WebElement webElement, String value) {
+    // TODO. Работа с селектами.
+    public void selectValueInDropdown(WebElement webElement, String value) {
         try {
             Select select = new Select(webElement);
             select.selectByValue(value);
@@ -60,9 +61,48 @@ public class ActionsWithOurElements {
         }
     }
 
-    // TODO. Работа с Чекбоксами. Дома сделать.
-    public void checkbox(WebElement webElement, String value) {
+    public void selectVisibleTextInDropdown(WebElement webElement, String text) {
+        try {
+            Select select = new Select(webElement);
+            select.selectByVisibleText(text);
+            logger.info(text + " is selected in drop-down");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
 
+    public void selectTextInDropdownByUi(WebElement WebElement, String text) {
+        try {
+            WebElement.click();
+            driver.findElement(By.xpath(".//option[contains(text(),'"+text+"')]")).click();
+            logger.info(text + " is selected in drop-down");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    // TODO. Работа с Чекбоксами. Дома сделать.
+    public void setStatusToCheckbox(WebElement webElement, String status) {
+        if(webElement.isSelected() && "checked".equals(status)){
+            logger.info("Checkbox has been activated");
+        } else if(!webElement.isSelected() && "checked".equals(status)) {
+            webElement.click();
+            logger.info("Checkbox activated");
+        } else if(webElement.isSelected() && "null".equals(status)) {
+            webElement.click();
+            logger.info("Checkbox deactivated");
+        } else if(!webElement.isSelected() && "null".equals(status)) {
+            logger.info("Checkbox has been deactivated");
+        }
+
+
+
+//        if(webElement.getAttribute(status) != null) {
+//            logger.info("Checkbox has been activated");
+//        } else {
+//            webElement.click();
+//            logger.info("Checkbox activated");
+//        }
     }
 // *********************************************************************************************************************
     private void printErrorAndStopTest(Exception e) {
