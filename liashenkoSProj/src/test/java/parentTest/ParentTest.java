@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.DealPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.VocabularyPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +21,7 @@ public class ParentTest {
    protected LoginPage loginPage;
    protected HomePage homePage;
    protected DealPage dealPage;
+   protected VocabularyPage vocabularyPage;
     @Before
     public void setUp(){
         File file = new File("./src/drivers/chromedriver.exe");
@@ -31,7 +33,8 @@ public class ParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage=new LoginPage(webDriver);
         homePage=new HomePage(webDriver);
-
+        dealPage=new DealPage(webDriver);
+        vocabularyPage=new VocabularyPage(webDriver);
     }
     @After
     public void tearDown(){

@@ -41,10 +41,10 @@ public class ActionsWithOurElements {
     public  boolean isElementPresent (WebElement webElement){
         try {
             boolean isDisplayed = webElement.isDisplayed();
-            logger.info("Elimint isDisplayed ->" + isDisplayed);
+            logger.info("Element isDisplayed ->" + isDisplayed);
           return   isDisplayed;
         }catch (Exception e){
-            logger.info("Elimint isDisplayed -> false");
+            logger.info("Element isDisplayed -> false");
             return false;
         }
     }

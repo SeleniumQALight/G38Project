@@ -27,6 +27,17 @@ public class LoginWithPageObject extends ParentTest {
     public  void selectDeal () {
     loginPage.login("Student","909090");
     dealPage.clickOnButtonDeal();
+    dealPage.clickOnButtonAddDeal();
+    vocabularyPage.selectDate();
+    vocabularyPage.clickSelectTypeDeal();
+    vocabularyPage.clickSelectCustomer();
+    vocabularyPage.clickSelectProvider();
+    vocabularyPage.clickSelectButtonCreat();
 
+        checkExpectedResult(
+                "Element is not  present",
+                vocabularyPage.selectNewElement()
+        );
     }
+
 }
