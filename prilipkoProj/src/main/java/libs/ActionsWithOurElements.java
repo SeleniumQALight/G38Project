@@ -87,16 +87,23 @@ public class ActionsWithOurElements {
     // CHECKBOX
     public void setStatusToCheckbox(WebElement webElement, String status) {
         try{
-            if(webElement.isSelected() && "checked".equals(status)){
-                logger.info("Checkbox has been activated");
-            } else if(!webElement.isSelected() && "checked".equals(status)) {
-                webElement.click();
-                logger.info("Checkbox activated");
-            } else if(webElement.isSelected() && "null".equals(status)) {
-                webElement.click();
-                logger.info("Checkbox deactivated");
-            } else if(!webElement.isSelected() && "null".equals(status)) {
-                logger.info("Checkbox has been deactivated");
+            if("checked".equals(status)){
+                if(webElement.isSelected()) {
+                    logger.info("Checkbox has been activated");
+                }
+                else if(!webElement.isSelected()) {
+                    webElement.click();
+                    logger.info("Checkbox activated");
+                }
+            }
+            if ("null".equals(status)) {
+                if(webElement.isSelected()) {
+                    webElement.click();
+                    logger.info("Checkbox deactivated");
+                }
+                else if(!webElement.isSelected()){
+                    logger.info("Checkbox has been deactivated");
+                }
             }
         } catch (Exception e) {
             printErrorAndStopTest(e);
