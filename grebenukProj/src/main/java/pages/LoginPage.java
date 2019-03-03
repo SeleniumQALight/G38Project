@@ -1,7 +1,6 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver; //1. Добавляем наследование и альт+ентер и автоматом создается конструктор
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,14 +24,14 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
             webDriver.get("http://v3.test.itpmgroup.com");
             System.out.println("Login page was opened");
         } catch (Exception e) {
-            System.out.println("Can not open login page + " + e); // it's going to out program
+            logger.error("Can not open login page + " + e); // it's going to out program
             Assert.fail("Can not open login page + " + e); // it's going to test otchot
         }
 
     }
 
     public void enterTextIntoInputLogin(String login) {
-        actionsWithOurElements.enterTextIntoElement(inputLogin, login);
+        actionsWithOurElements.clickOnElement(inputLogin, login);
 
     }
  /*       try {
@@ -48,7 +47,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
 
   */
     public void enterTextIntoInputPassword (String password) {
-        actionsWithOurElements.enterTextIntoElement(inputPass, password);
+        actionsWithOurElements.clickOnElement(inputPass, password);
     }
 /*        try {
             inputPass.clear(); // we cleaned the field for login
@@ -62,7 +61,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
     }
 */
     public void clickOnEnterButton () {
-        actionsWithOurElements.enterTextIntoElement(button);
+        actionsWithOurElements.clickOnElement(button);
 /*
         try {
             button.click();
@@ -73,5 +72,12 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
         }
 
         */
+    }
+
+    public void login(String login, String password) {
+    openPage();
+    enterTextIntoInputLogin(login);
+    enterTextIntoInputPassword(password);
+    clickOnEnterButton();
     }
 }
