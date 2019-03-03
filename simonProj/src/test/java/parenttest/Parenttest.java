@@ -1,5 +1,6 @@
 package parenttest;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,14 +14,17 @@ import java.util.concurrent.TimeUnit;
 
 public class Parenttest {
     WebDriver webDriver;
+
     protected LoginPage loginPage;
     protected HomePage homePage;
+    Logger logger = Logger.getLogger(getClass());
+
 
     @Before
     public void setUp() {
         File file = new File("./src/drivers/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        WebDriver webDriver = new ChromeDriver();
+        webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 

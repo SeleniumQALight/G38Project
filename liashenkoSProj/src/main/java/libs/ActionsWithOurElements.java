@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -15,7 +16,7 @@ public class ActionsWithOurElements {
         try {
             element.clear();
             element.sendKeys(text);
-           logger.info(text + "was input into element");
+           logger.info(text + " "+ "was input into element");
         }catch (Exception e){
             printErrorAndStopTest(e);
         }
@@ -35,5 +36,34 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
 
+    }
+
+    public  boolean isElementPresent (WebElement webElement){
+        try {
+            boolean isDisplayed = webElement.isDisplayed();
+            logger.info("Elimint isDisplayed ->" + isDisplayed);
+          return   isDisplayed;
+        }catch (Exception e){
+            logger.info("Elimint isDisplayed -> false");
+            return false;
+        }
+    }
+    public void slectTextInDD(WebElement element, String text){
+        try {
+            Select select=new Select(element);
+            select.selectByVisibleText(text);
+            logger.info(text + "was selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
+    public void slectValueInDD(WebElement element, String value){
+        try {
+            Select select=new Select(element);
+            select.selectByValue(value);
+            logger.info(value + "was selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
     }
 }

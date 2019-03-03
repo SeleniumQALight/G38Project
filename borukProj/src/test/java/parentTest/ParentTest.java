@@ -12,10 +12,10 @@ import pages.LoginPage;
 import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
-    WebDriver webDriver;
+    public WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
-
+//
     @Before
     public void setUp() {
 //        File file = new File("./src/drivers/chromedriver.exe");
