@@ -33,5 +33,18 @@ public class SettingWithPageObject extends ParentTest {
                "Element present",
                 !settingPage.elementCraeted());
     }
+
+    @Test
+    public void addPartToPartsList(){
+        loginPages.login("Student", "909090");
+        loginPages.clickOnSettingButton();
+        settingPage.selectElement();
+        vocabularyPage.clickOnButtonAddPart();
+        vocabularyPage.workWithCheckBox("chack");
+        vocabularyPage.enterTextToInputSpareCount("123456");
+        vocabularyPage.selectSetting();
+        vocabularyPage.selectPart();
+        vocabularyPage.clickOnButtonCreat();
+    }
 }
 

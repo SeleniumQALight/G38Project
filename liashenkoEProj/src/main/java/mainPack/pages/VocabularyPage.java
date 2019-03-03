@@ -12,13 +12,13 @@ public class VocabularyPage extends ParentPage {
     @FindBy(xpath = ".//select[@id= 'installation_apparat']")
     private WebElement fildAparat;
 
-    @FindBy(xpath = ".//select[@id= 'installation_apparat']//option[@value = '1']")
-    private WebElement brokenSensor;
+    @FindBy(xpath = ".//select[@id= 'installation_apparat']//option[@value = '809']")
+    private WebElement selectElement;
 
     @FindBy(xpath = ".//select[@id = 'installation_worker']")
     private WebElement fildEmployee;
 
-    @FindBy(xpath = ".//select[@id = 'installation_worker']//option[@value = '10']")
+    @FindBy(xpath = ".//select[@id = 'installation_worker']//option[@value = '350']")
     private  WebElement selectEmployee;
 
     @FindBy(xpath = ".//button[@name = 'add']")
@@ -45,12 +45,33 @@ public class VocabularyPage extends ParentPage {
     @FindBy(xpath = ".//form[@name = 'installation']//button[@name='delete']")
     private WebElement buttonDeletesetting;
 
+    @FindBy(xpath = ".//a[@class='btn btn-info btn-sm']")
+    private WebElement buttonAddPart;
+
+    @FindBy(xpath = ".//input[@id='installed_spares_spareCount']")
+    private WebElement inputToSpareCount;
+
+    @FindBy(xpath = ".//select[@id = 'installed_spares_installation']")
+    private WebElement fildSettingInVocabulary;
+
+    @FindBy(xpath = ".//select[@id = 'installed_spares_installation']//option[@value = '112']")
+    private WebElement selectSettingInVocabulary;
+
+    @FindBy(xpath = ".//select[@id = 'installed_spares_spare']")
+    private WebElement fildPart;
+
+    @FindBy(xpath = ".//select[@id = 'installed_spares_spare']//option[@value = '1166']")
+    private WebElement selectPart2;
+
+    @FindBy(xpath = ".//div[@class = 'checkbox']")
+    private WebElement checkBox;
+
     public void clickOnFildAparat() {
         actionsWithOurElements.clickOnButton(fildAparat);
     }
 
     public void selectAparat() {
-        actionsWithOurElements.clickOnButton(brokenSensor);
+        actionsWithOurElements.clickOnButton(selectElement);
     }
 
     public void clickOnFildEmployee() {
@@ -77,5 +98,27 @@ public class VocabularyPage extends ParentPage {
 
     public void clickOnButtonDelete() {
         actionsWithOurElements.clickOnButton(buttonDeletesetting);
+    }
+
+    public void clickOnButtonAddPart() {
+        actionsWithOurElements.clickOnButton(buttonAddPart);
+    }
+
+    public void enterTextToInputSpareCount(String text) {
+        actionsWithOurElements.enterTextInToElement(inputToSpareCount, text);
+    }
+
+    public void selectSetting() {
+    actionsWithOurElements.clickOnButton(fildSettingInVocabulary);
+    actionsWithOurElements.clickOnButton(selectSettingInVocabulary);
+    }
+
+    public void selectPart() {
+        actionsWithOurElements.clickOnButton(fildPart);
+        actionsWithOurElements.clickOnButton(selectPart2);
+    }
+
+    public void workWithCheckBox(String status) {
+        actionsWithOurElements.setStatusToCheckBox(checkBox, status);
     }
 }
