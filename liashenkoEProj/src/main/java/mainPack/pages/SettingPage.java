@@ -23,4 +23,7 @@ public class SettingPage extends ParentPage {
     public boolean elementCraeted() {
         return actionsWithOurElements.isAlementPresent(newElement);
     }
+    public void selectElement() {
+        actionsWithOurElements.clickOnButton(newElement);
+    }
 }

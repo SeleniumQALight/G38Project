@@ -42,6 +42,9 @@ public class VocabularyPage extends ParentPage {
     @FindBy(xpath = ".//select[@id= 'installation_installationDate_date_year']//option[@value='2019']")
     private WebElement selectYear;
 
+    @FindBy(xpath = ".//form[@name = 'installation']//button[@name='delete']")
+    private WebElement buttonDeletesetting;
+
     public void clickOnFildAparat() {
         actionsWithOurElements.clickOnButton(fildAparat);
     }
@@ -62,7 +65,7 @@ public class VocabularyPage extends ParentPage {
         actionsWithOurElements.clickOnButton(buttonCreat);
     }
 
-    public void selectDateDay(){
+    public void selectDate(){
         actionsWithOurElements.clickOnButton(selectDateDay);
         actionsWithOurElements.clickOnButton(dateDey05);
         actionsWithOurElements.clickOnButton(fildMonth);
@@ -70,5 +73,9 @@ public class VocabularyPage extends ParentPage {
         actionsWithOurElements.clickOnButton(fildYear);
         actionsWithOurElements.clickOnButton(selectYear);
 
+    }
+
+    public void clickOnButtonDelete() {
+        actionsWithOurElements.clickOnButton(buttonDeletesetting);
     }
 }

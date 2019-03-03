@@ -10,7 +10,7 @@ public class SettingWithPageObject extends ParentTest {
         loginPages.login("Student", "909090");
         loginPages.clickOnSettingButton();
         settingPage.clickOnButtonAddSetting();
-        vocabularyPage.selectDateDay();
+        vocabularyPage.selectDate();
         vocabularyPage.clickOnFildAparat();
         vocabularyPage.selectAparat();
         vocabularyPage.clickOnFildEmployee();
@@ -20,9 +20,18 @@ public class SettingWithPageObject extends ParentTest {
         checkExpectedResult(
                 "Element is not present",
                 settingPage.elementCraeted());
+    }
 
+    @Test
+    public void removeSetting(){
+        loginPages.login("Student", "909090");
+        loginPages.clickOnSettingButton();
+        settingPage.selectElement();
+        vocabularyPage.clickOnButtonDelete();
 
-
+        checkExpectedResult(
+               "Element present",
+                !settingPage.elementCraeted());
     }
 }
 
