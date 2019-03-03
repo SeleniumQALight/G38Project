@@ -18,37 +18,37 @@ public class ActionsWithOurElements {
         try {
             element.clear();
             element.sendKeys(text);
-            logger.info(text + " was input in toelement");
+            logger.info(text + " was input in to element");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
     private void printErrorAndStopTest(Exception e) {
-        logger.error("Can not workwith element" + e);
-        Assert.fail("Can not workwith element" + e);
+        logger.error("Can not work with element" + e);
+        Assert.fail("Can not work with element" + e);
     }
 
     public void clickOnElement(WebElement element) {
         try {
             element.click();
-            logger.info("Elementwas clicked");
+            logger.info("Element was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
-
     }
 
     public boolean isElementPresent(WebElement webElement) {
         try {
             boolean isDisplayed = webElement.isDisplayed();
-            logger.info("Element is display -> " + isDisplayed);
+            logger.info("Element is displayed -> " + isDisplayed);
             return isDisplayed;
         } catch (Exception e) {
-            logger.info("Element is display -> ");
+            logger.info("Element is display -> false");
             return false;
         }
     }
+
     public void selectTextInDD(WebElement element, String text) {
         try {
             Select select = new Select(element);
@@ -58,15 +58,15 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
     }
-        public void selectValueInDD (WebElement element, String value){
-            try {
-                Select select = new Select(element);
-                select.selectByValue(value);
-                logger.info(value + " was selected in DD");
-            }catch (Exception e) {
-                printErrorAndStopTest(e);
-            }
 
+    public void selectValueInDD(WebElement element, String value) {
+        try {
+            Select select = new Select(element);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DD");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 }
 
