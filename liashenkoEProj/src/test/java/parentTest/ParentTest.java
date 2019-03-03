@@ -3,6 +3,7 @@ package parentTest;
 import mainPack.pages.HomePage;
 import mainPack.pages.LoginPages;
 import mainPack.pages.SettingPage;
+import mainPack.pages.VocabularyPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,6 +18,7 @@ public class ParentTest {
     protected LoginPages loginPages;
     protected HomePage homePage;
     protected SettingPage settingPage;
+    protected VocabularyPage vocabularyPage;
 
     @Before
     public void setUp(){
@@ -29,6 +31,8 @@ public class ParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPages = new LoginPages(webDriver);
         homePage = new HomePage(webDriver);
+        settingPage = new SettingPage(webDriver);
+        vocabularyPage = new VocabularyPage(webDriver);
     }
 
     @After

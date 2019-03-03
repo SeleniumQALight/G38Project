@@ -6,13 +6,21 @@ import parentTest.ParentTest;
 public class SettingWithPageObject extends ParentTest {
 
     @Test
-    public void addSetting() throws InterruptedException{
+    public void addSetting(){
         loginPages.login("Student", "909090");
         loginPages.clickOnSettingButton();
-        Thread.sleep(1000);
         settingPage.clickOnButtonAddSetting();
-       // settingPage.clickOnFildAparat();
-        //Thread.sleep(1000);
+        vocabularyPage.selectDateDay();
+        vocabularyPage.clickOnFildAparat();
+        vocabularyPage.selectAparat();
+        vocabularyPage.clickOnFildEmployee();
+        vocabularyPage.selectEmployee();
+        vocabularyPage.clickOnButtonCreat();
+
+        checkExpectedResult(
+                "Element is not present",
+                settingPage.elementCraeted());
+
 
 
     }

@@ -10,30 +10,17 @@ public class SettingPage extends ParentPage {
         super(webDriver); }
 
 
-    @FindBy(xpath = ".//i[@class = 'fa fa-plus']")
+    @FindBy(xpath = ".//a[@href = 'http://v3.test.itpmgroup.com/dictionary/installation/edit']")
     private WebElement buttonAddSetting;
 
-    @FindBy(xpath = ".//select[@id= 'installation_apparat']")
-    private WebElement fildAparat;
-
-    @FindBy(xpath = ".//select[@id= 'installation_apparat']//option[@value = '1']")
-    private WebElement brokenSensor;
+    @FindBy(xpath = ".//*[text()='05.06.2019 00:00']")
+    private WebElement newElement;
 
     public void clickOnButtonAddSetting(){
         actionsWithOurElements.clickOnButton(buttonAddSetting);
     }
 
-    public void clickOnFildAparat() {
-    actionsWithOurElements.clickOnButton(fildAparat);
-    }
-
-    public void selectAparat() {
-        actionsWithOurElements.clickOnButton(brokenSensor);
-    }
-
-
-    public boolean fintElement() {
-      return   actionsWithOurElements.isAlementPresent(buttonAddSetting);
-
+    public boolean elementCraeted() {
+        return actionsWithOurElements.isAlementPresent(newElement);
     }
 }
