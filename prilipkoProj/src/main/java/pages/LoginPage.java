@@ -1,31 +1,47 @@
 package pages;
 
 
-import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 
-public class LoginPage {
-
-    private WebDriver driver;
+public class LoginPage extends ParentPage {
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    private By emailField = By.xpath(".//input[@placeholder='Email']");
-    private By passwordField = By.xpath(".//input[@type='password']");
-    private By submitButton = By.xpath(".//button[@type='submit']");
+    @FindBy(xpath = ".//input[@placeholder='Email']")
+    private WebElement emailField;
 
-    public void inputLogin(String login) {
-        driver.findElement(emailField).sendKeys(login);
+    @FindBy(xpath = ".//input[@type='password']")
+    private WebElement passwordField;
+
+    @FindBy(xpath = ".//button[@type='submit']")
+    private WebElement submitButton;
+
+
+    public void openPage() {
+        try {
+            driver.get("http://v3.test.itpmgroup.com/login");
+            System.out.println("Login page was opened");
+        } catch (Exception e) {
+            System.out.println("Cannot open login page" + e);
+            Assert.fail("Cannot open login page" + e);
+        }
     }
 
-    public void inputPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+    public void enterTextInToInputLogin(String login) {
+        actionsWithOurElements.enterTextInToElement(emailField,login);
     }
 
-    public void clickSubmitButton() {
-        driver.findElement(submitButton).click();
+    public void enterTextInToInputPassword(String password) {
+        actionsWithOurElements.enterTextInToElement(passwordField,password);
+    }
+
+    public void clickOnSubmitButton() {
+        actionsWithOurElements.clickOnElement(submitButton);
     }
 }
