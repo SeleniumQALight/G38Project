@@ -1,5 +1,6 @@
 package parentTest;
 
+import libs.ActionsWithElements;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +16,7 @@ public class ParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected ActionsWithElements actionsWithElements;
 
     @Before
     public void setUp() {

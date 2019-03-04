@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithElements {
-    WebDriver webDriver;
-    Logger logger = Logger.getLogger(getClass()); //инициализировали логер
+    static WebDriver webDriver;
+    static Logger logger = Logger.getLogger(ActionsWithElements.class); //инициализировали логер
 
     public ActionsWithElements(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -73,6 +73,37 @@ public class ActionsWithElements {
         }
     }
 
-    //Select value in dropdown by UI
-    // checkbox.isSeleted -3 statuses method "if" Webelement element, Strint status
+    /**
+     * Set status for checkbox can be "IsDisable", "dropDownIsSelected", "dropDownIsNotSelected"
+     * @param webElement
+     * @return
+     */
+    public static String setStatusToCheckBox(WebElement webElement) {
+        boolean isElementEnable = webElement.isEnabled();
+        boolean isDropDownSelected = webElement.isSelected();
+
+        if (isElementEnable == true && isDropDownSelected == false) {
+            return "dropDownIsNotTicked";
+        } else if (isElementEnable == true && isDropDownSelected == true) {
+            return "dropDownIsTicked";
+        } else {
+            return "IsDisable";
+        }
+    }
+
+    public static void clickOnCheckbox(WebElement webElement, String expectedStatus) {
+        String checkBoxStatus = setStatusToCheckBox(webElement);
+        if( expectedStatus == "IsDisable" && expectedStatus == checkBoxStatus) {
+            logger.info("checkbox is desable");
+        }
+        else if (expectedStatus == "IsDisable" && expectedStatus != checkBoxStatus) {
+            Assert.fail("Expected status = " + expectedStatus + " but checkbox status = " + checkBoxStatus);
+        }
+
+        else if (expectedStatus == checkBoxStatus) {
+            webElement.click();
+        }
+        else if(expectedStatus != checkBoxStatus) {
+        }
+    }
 }

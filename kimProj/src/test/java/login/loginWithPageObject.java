@@ -1,6 +1,8 @@
 package login;
 
+import libs.ActionsWithElements;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import parentTest.ParentTest;
 
 public class loginWithPageObject extends ParentTest {
@@ -23,4 +25,5 @@ public class loginWithPageObject extends ParentTest {
         loginPage.login("SashaGrey", "XXX");
         checkExpectedResult("Avatar is present", !homePage.isAvatarPresent()); // "!" - инверсия
     }
+
 }
