@@ -69,4 +69,19 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
     }
+    public  void setStatusToCheckbox (String status, WebElement checkBox){
+        try {
+            if (checkBox.isSelected() && checkBox.equals(status)){
+                logger.info("Checkbox was enabled");
+            }
+            checkBox.click();
+            logger.info("Checkbox was disabled and click on it" );
+
+
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
+
+
 }
