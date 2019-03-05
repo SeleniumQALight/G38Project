@@ -19,7 +19,7 @@ public class HomePage extends ParentPage {
     @FindBy(id = "dictionary")
     private WebElement mainMenuDictionary;
 
-    @FindBy(id = "spare")
+    @FindBy(id = "spares")
     private WebElement subMenuSpare;
 
 
