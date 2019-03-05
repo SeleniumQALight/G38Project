@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends PerentPage {
-
+Logger logger=Logger.getLogger(getClass());
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
@@ -22,9 +23,9 @@ public class LoginPage extends PerentPage {
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
-            System.out.println("Login page was opened");
+            logger.info("Login page was opened");
         }catch (Exception e ){
-            System.out.println("Can open login page" + e);
+           logger.error("Can open login page" + e);
             Assert.fail("Can open login page" + e);
         }
     }
@@ -62,5 +63,12 @@ public class LoginPage extends PerentPage {
             Assert.fail("Can not work with element" + e);
         }*/
       actionsWithOurElements.clickOnElement(button);
+    }
+
+    public void login(String login, String passWord) {
+        openPage();
+        enterTextInToInputLogin(login);
+        enterTextInToInputPass(passWord);
+        clickOnButtonSubmit();
     }
 }
