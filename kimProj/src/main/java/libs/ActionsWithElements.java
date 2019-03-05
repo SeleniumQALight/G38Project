@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithElements {
-    static WebDriver webDriver;
-    static Logger logger = Logger.getLogger(ActionsWithElements.class); //инициализировали логер
+    WebDriver webDriver;
+    Logger logger = Logger.getLogger(ActionsWithElements.class); //инициализировали логер
 
     public ActionsWithElements(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -28,12 +28,12 @@ public class ActionsWithElements {
      * Stop test and print ERROR
      * @param e
      */
-    private static void printErrorAndStopTest(Exception e) {
+    private void printErrorAndStopTest(Exception e) {
         logger.error("Can not work with element" + e);
         Assert.fail("Can not work with element" + e);
     }
 
-    public static void clickOnElement(WebElement element) {
+    public void clickOnElement(WebElement element) {
         try{
             element.click();
             logger.info("Element was clicked");
@@ -78,7 +78,7 @@ public class ActionsWithElements {
      * @param webElement
      * @return
      */
-    public static String setStatusToCheckBox(WebElement webElement) {
+    public String setStatusToCheckBox(WebElement webElement) {
         boolean isElementEnable = webElement.isEnabled();
         boolean isDropDownSelected = webElement.isSelected();
 
@@ -91,7 +91,7 @@ public class ActionsWithElements {
         }
     }
 
-    public static void clickOnCheckbox(WebElement webElement, String expectedStatus) {
+    public void clickOnCheckbox(WebElement webElement, String expectedStatus) {
         String checkBoxStatus = setStatusToCheckBox(webElement);
         if( expectedStatus == "IsDisable" && expectedStatus == checkBoxStatus) {
             logger.info("checkbox is desable");
@@ -107,7 +107,7 @@ public class ActionsWithElements {
         }
     }
 
-    public static void dropDown(WebElement dropDown, WebElement value) {
+    public void dropDown(WebElement dropDown, WebElement value) {
         try {
             clickOnElement(dropDown);
             clickOnElement(value);
