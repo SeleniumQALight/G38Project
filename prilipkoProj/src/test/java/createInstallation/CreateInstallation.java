@@ -13,7 +13,7 @@ public class CreateInstallation extends ParentTest {
 
         loginPage.login(LOGIN, PASSWORD);
 
-        homePage.clickOnDictionaryButton();
+        homePage.clickOnDictionaryMenu();
         homePage.clickOnApparatButton();
 
         apparatPage.clickAddButton();
@@ -23,7 +23,7 @@ public class CreateInstallation extends ParentTest {
         String APPARAT = apparatEditPage.getApparatComment();
         apparatEditPage.clickOnSubmitButton();
 
-        apparatEditPage.clickOnWorkersButton();
+        apparatEditPage.clickOnSubMenuWorkers();
 
         workersPage.clickAddButton();
 
@@ -35,7 +35,7 @@ public class CreateInstallation extends ParentTest {
         workersEditPage.inputWorkerPhone("+38(063)834-99-22");
         workersEditPage.clickOnSubmitButton();
 
-        workersPage.clickOnInstallationButton();
+        workersPage.clickOnInstallationMenu();
 
         installationPage.clickAddButton();
 

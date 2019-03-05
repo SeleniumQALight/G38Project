@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class ParentPage {
+class ParentPage {
 
     WebDriver driver;
 
@@ -20,6 +20,7 @@ public class ParentPage {
     Logger logger = Logger.getLogger(getClass());
 
     public ParentPage(WebDriver driver) {
+
         this.driver = driver;
 
         PageFactory.initElements(driver,this); // Создали объекты WebElement
@@ -36,6 +37,9 @@ public class ParentPage {
     @FindBy(xpath = ".//li[@id='workers']")
     private WebElement workersButton;
 
+    @FindBy(xpath = ".//li[@id='spares']")
+    private WebElement spareButton;
+
     @FindBy(xpath = "//li[@id='prov_cus']")
     private WebElement providersButton;
 
@@ -49,7 +53,7 @@ public class ParentPage {
     private WebElement addButton;
 
 
-    public void clickOnDictionaryButton() {
+    public void clickOnDictionaryMenu() {
         actionsWithOurElements.clickOnElement(dictionaryButton);
     }
 
@@ -57,15 +61,19 @@ public class ParentPage {
         actionsWithOurElements.clickOnElement(apparatButton);
     }
 
-    public void clickOnWorkersButton() {
+    public void clickOnSubMenuWorkers() {
         actionsWithOurElements.clickOnElement(workersButton);
     }
 
-    public void clickProvidersButton() {
+    public void clickOnSubMenuSpares() {
+        actionsWithOurElements.clickOnElement(spareButton);
+    }
+
+    public void clickOnSubMenuProviders() {
         actionsWithOurElements.clickOnElement(providersButton);
     }
 
-    public void clickOnInstallationButton() {
+    public void clickOnInstallationMenu() {
         actionsWithOurElements.clickOnElement(installationButton);
     }
 

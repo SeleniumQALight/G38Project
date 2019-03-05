@@ -13,8 +13,8 @@ public class CreateProviders extends ParentTest {
 
         loginPage.login(LOGIN, PASSWORD);
 
-        homePage.clickOnDictionaryButton();
-        homePage.clickProvidersButton();
+        homePage.clickOnDictionaryMenu();
+        homePage.clickOnSubMenuProviders();
 
         providersPage.openFirstProvidersInList();
 

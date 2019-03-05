@@ -13,7 +13,7 @@ public class CreateApparat extends ParentTest {
 
         loginPage.login(LOGIN, PASSWORD);
 
-        homePage.clickOnDictionaryButton();
+        homePage.clickOnDictionaryMenu();
         homePage.clickOnApparatButton();
 
         apparatPage.clickAddButton();

@@ -40,6 +40,14 @@ public class ActionsWithOurElements {
         }
     }
 
+    public void clickOnElement(By xpath) {
+        try {
+            clickOnElement(driver.findElement(xpath));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
     public boolean isElementPresent(WebElement webElement) {
         try {
             boolean isDisplayed = webElement.isDisplayed();
@@ -47,6 +55,14 @@ public class ActionsWithOurElements {
             return isDisplayed;
         } catch (Exception e) {
             logger.info("Element is not displayed");
+            return false;
+        }
+    }
+
+    public boolean isElementPresent(By xpath) {
+        try {
+            return isElementPresent(driver.findElement(xpath));
+        } catch (Exception e) {
             return false;
         }
     }

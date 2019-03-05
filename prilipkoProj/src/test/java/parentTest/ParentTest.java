@@ -21,7 +21,7 @@ public class ParentTest {
     private WebDriver driver;
 
     protected Date dateNow = new Date();
-    protected SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyyMMddhhmmss");
+    protected SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy/MM/dd_hh:mm:ss");
 
     protected LoginPage loginPage;
     protected HomePage homePage;
@@ -29,6 +29,8 @@ public class ParentTest {
     protected ApparatEditPage apparatEditPage;
     protected WorkersPage workersPage;
     protected WorkersEditPage workersEditPage;
+    protected SparesPage sparesPage;
+    protected SparesEditPage sparesEditPage;
     protected ProvidersPage providersPage;
     protected ProvidersEditPage providersEditPage;
     protected InstallationPage installationPage;
@@ -54,6 +56,8 @@ public class ParentTest {
         apparatEditPage = new ApparatEditPage(driver);
         workersPage = new WorkersPage(driver);
         workersEditPage = new WorkersEditPage(driver);
+        sparesPage = new SparesPage(driver);
+        sparesEditPage = new SparesEditPage(driver);
         providersPage = new ProvidersPage(driver);
         providersEditPage = new ProvidersEditPage(driver);
         installationPage = new InstallationPage(driver);
