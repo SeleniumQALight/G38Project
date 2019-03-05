@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class LoginPage extends ParentPage {
+
 
     @FindBy(name = "_username") // id/path
     private WebElement inputLogin;      // обьявление веб-елемента
@@ -26,9 +28,10 @@ public class LoginPage extends ParentPage {
 
         try {
             webDriver.get("http://v3.test.itpmgroup.com/login");
-            System.out.println("Login page was open");
+
+            logger.info("Login page was open");
         } catch (Exception e) {
-            System.out.println("Can not open Login page " + e);
+            logger.info("Can not open Login page " + e);
             Assert.fail("Can not open Login page " + e);
         }
 
@@ -72,4 +75,10 @@ public class LoginPage extends ParentPage {
     }
 
 
+    public void login(String invalidLogin, String password) {
+        openPage();
+        enterTextIntoInputLogin(invalidLogin);
+        enterTextIntoInputPass(password);
+        clickOnButtonSubmit();
+    }
 }
