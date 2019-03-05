@@ -30,6 +30,8 @@ public class LoginPage extends ParentPage{
         }
     }
 
+
+
     public void enterTextInToInputLogin(String login) {
 
         actionsWithElements.enterTextInToElement(inputLogin, login);

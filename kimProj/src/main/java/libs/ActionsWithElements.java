@@ -28,12 +28,12 @@ public class ActionsWithElements {
      * Stop test and print ERROR
      * @param e
      */
-    private void printErrorAndStopTest(Exception e) {
+    private static void printErrorAndStopTest(Exception e) {
         logger.error("Can not work with element" + e);
         Assert.fail("Can not work with element" + e);
     }
 
-    public void clickOnElement(WebElement element) {
+    public static void clickOnElement(WebElement element) {
         try{
             element.click();
             logger.info("Element was clicked");
@@ -104,6 +104,15 @@ public class ActionsWithElements {
             webElement.click();
         }
         else if(expectedStatus != checkBoxStatus) {
+        }
+    }
+
+    public static void dropDown(WebElement dropDown, WebElement value) {
+        try {
+            clickOnElement(dropDown);
+            clickOnElement(value);
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
         }
     }
 }
