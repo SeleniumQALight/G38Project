@@ -4,20 +4,21 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.ui.Select;
 
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
+    Logger logger;
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
-        Logger logger =Logger.getLogger(getClass());
+        logger =Logger.getLogger(getClass());
     }
     public void enterTextInToElement(WebElement element, String text) {
         try {
             element.clear();
             element.sendKeys(text);
-            System.out.println(text + "was input into element");
+            logger.info(text + "was input into element");
         }catch (Exception e){
             printErrorAndStopTest(e);
         }
@@ -30,11 +31,42 @@ public class ActionsWithOurElements {
         public void clickOnElement(WebElement element){
             try {
                element.click();
-                System.out.println("Element was clicked");
+                logger.info("Element was clicked");
 
         }catch (Exception e){
                 printErrorAndStopTest(e);
             }
         }
+
+        public boolean isElementPresent(WebElement webElement){
+        try{
+            boolean isDisplayed = webElement.isDisplayed();
+            logger.info ("Element is displayed -> " + isDisplayed);
+          return   isDisplayed;
+        } catch (Exception e){
+            logger.info("Element is displayed -> false");
+            return false;
+        }
+        }
+
+        public void  selectTextInDD(WebElement element, String text){
+        try {
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
+            logger.info(text + " was selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+        }
+
+    public void  selectValueInDD(WebElement element, String value){
+        try {
+            Select select = new Select(element);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
 
 }

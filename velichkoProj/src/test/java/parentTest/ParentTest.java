@@ -21,11 +21,11 @@ public class ParentTest {
     protected HomePage homePage;
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        WebDriver driver = new ChromeDriver();
+        webDriver = new ChromeDriver();
 
         //ChromeDriverManager.getInstance().setup();
         //ChromeOptions options = new ChromeOptions();
