@@ -1,6 +1,7 @@
 package setting;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 import parentTest.ParentTest;
 
 public class SettingWithPageObject extends ParentTest {
@@ -45,6 +46,8 @@ public class SettingWithPageObject extends ParentTest {
         vocabularyPage.selectSetting();
         vocabularyPage.selectPart();
         vocabularyPage.clickOnButtonCreat();
+
+
     }
 }
 

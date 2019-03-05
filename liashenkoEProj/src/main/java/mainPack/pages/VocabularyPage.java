@@ -54,7 +54,7 @@ public class VocabularyPage extends ParentPage {
     @FindBy(xpath = ".//select[@id = 'installed_spares_installation']")
     private WebElement fildSettingInVocabulary;
 
-    @FindBy(xpath = ".//select[@id = 'installed_spares_installation']//option[@value = '112']")
+    @FindBy(xpath = ".//select[@id = 'installed_spares_installation']//option[@value = '113']")
     private WebElement selectSettingInVocabulary;
 
     @FindBy(xpath = ".//select[@id = 'installed_spares_spare']")
@@ -63,7 +63,7 @@ public class VocabularyPage extends ParentPage {
     @FindBy(xpath = ".//select[@id = 'installed_spares_spare']//option[@value = '1166']")
     private WebElement selectPart2;
 
-    @FindBy(xpath = ".//div[@class = 'checkbox']")
+    @FindBy(xpath = ".//input[@type = 'checkbox']")
     private WebElement checkBox;
 
     public void clickOnFildAparat() {
@@ -121,4 +121,5 @@ public class VocabularyPage extends ParentPage {
     public void workWithCheckBox(String status) {
         actionsWithOurElements.setStatusToCheckBox(checkBox, status);
     }
+
 }

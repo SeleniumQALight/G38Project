@@ -62,15 +62,14 @@ public class ActionsWithOurElements {
     }
 
     public void setStatusToCheckBox(WebElement element, String status){
-        if (element.isSelected() & "chack".equals(status))
-        logger.info("CheckBox selected");
-        if (element.isSelected() & "anchack".equals(status))
-        element.click();
-
-        if (element.isSelected()& "anchack".equals(status))
-            element.click();
-        if (element.isSelected()& "chack".equals(status))
-            logger.info("CheckBox not selected");
+        if (element.isSelected() & "chack".equals(status)){
+        logger.info("CheckBox selected");}
+        if (element.isSelected() & "anchack".equals(status)){
+        element.click();}
+        if (!element.isSelected()& "chack".equals (status)){
+            element.click();}
+        if (!element.isSelected()& "anchack".equals(status)){
+            logger.info("fdsfds");}
 
 
     }
