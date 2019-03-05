@@ -62,7 +62,7 @@ Logger logger =  Logger.getLogger(getClass());
         }
 
     }
-    public void selectTextInValue(WebElement element, String value){
+    public void selectTextInDeopDown(WebElement element, String value){
         try {
             Select select = new Select(element);
             select.selectByValue(value);
