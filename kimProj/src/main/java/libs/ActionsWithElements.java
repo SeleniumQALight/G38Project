@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -49,6 +50,14 @@ public class ActionsWithElements {
             return isDisplayed;
         } catch (Exception e) {
             logger.info("Element is displayed -> false + "+ e);
+            return false;
+        }
+    }
+
+    public boolean isElementDisplayed(By xpath) {
+        try{
+            return isElementDisplayed(webDriver.findElement(xpath));
+        } catch (Exception e){
             return false;
         }
     }
