@@ -68,7 +68,7 @@ public class LoginPage extends ParentPage {
 //        }
     }
 
-    public void Login(String login, String passWord) {
+    public void login(String login, String passWord) {
         openPage();
         enterTextInToInputLogin(login);
         enterTextInToInputPass(passWord);
