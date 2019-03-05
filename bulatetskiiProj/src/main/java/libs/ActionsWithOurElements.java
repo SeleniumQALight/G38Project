@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -35,6 +36,36 @@ public class ActionsWithOurElements {
             element.click();
             logger.info("Elemen was clicked");
         } catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
+    public boolean isElementPresent(WebElement webElement){
+        try {
+            boolean isDispleed = webElement.isDisplayed();
+            logger.info("Element is desplayed -->" + isDispleed);
+           return isDispleed;
+
+        }catch (Exception e){
+            logger.info("Element is desplayed --> false" );
+            return false;
+        }
+    }
+
+    public void selectTextInDD(WebElement element, String text){
+        try {
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
+            logger.info(text + "was selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
+    public void selectValueInDD(WebElement element, String value){
+        try {
+            Select select = new Select(element);
+            select.selectByValue(value);
+            logger.info(value + "was selected in DD");
+        }catch (Exception e){
             printErrorAndStopTest(e);
         }
     }
