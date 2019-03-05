@@ -6,26 +6,28 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.SparePage;
 
 import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
     public WebDriver webDriver = new ChromeDriver();
     protected LoginPage loginPage = new LoginPage(webDriver);
-    protected HomePage homePage= new HomePage(webDriver);
+    protected HomePage homePage = new HomePage(webDriver);
+    protected SparePage sparePage = new SparePage(webDriver);
+    protected EditSparePage editSparePage = new EditSparePage(webDriver);
+
 //
     @Before
     public void setUp() {
 //        File file = new File("./src/drivers/chromedriver.exe");
 //        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 
-//        webDriver = new ChromeDriver(); // create object for chrome
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
- //       loginPage = new LoginPage(webDriver);
- //       homePage = new HomePage(webDriver);
     }
 
     @After
