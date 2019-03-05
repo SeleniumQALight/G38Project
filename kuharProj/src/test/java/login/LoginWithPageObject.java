@@ -17,7 +17,12 @@ public class LoginWithPageObject extends ParentTest {
                 "Avatar is not present",
                 (Boolean) homePage.isAvatarPresent()
         );
+    }
 
-
+    @Test
+    public void invalidLogin(){
+        loginPage.login("Invalid login", "909090");
+        checkExpectedResult("Avatar was not present",
+                !homePage.isAvatarPresent());
     }
 }

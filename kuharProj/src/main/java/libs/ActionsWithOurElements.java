@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
 
@@ -39,6 +40,42 @@ public class ActionsWithOurElements {
            // System.out.println("Element was clicked");
             logger.info("Element was clicked");
         } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public boolean isElementPresent (WebElement webElement){
+        try {
+            boolean isDisplayed = webElement.isDisplayed();
+            logger.info("Element is displayed " + isDisplayed);
+            return isDisplayed;
+        }catch (Exception e){
+            logger.info("Element is displayed -> false");
+            return false;
+        }
+    }
+
+
+    public void selectTextInDropdown(WebElement element, String text){
+        try {
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
+            logger.info("Text " + text + " was selected in dropdown " + element);
+
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
+
+
+    //TODO:
+    public void selectValue(WebElement element, String value){
+        try {
+            Select select = new Select(element);
+            select.selectByValue(value);
+            logger.info("Value " + value + " was selected in dropdown" );
+
+        }catch (Exception e){
             printErrorAndStopTest(e);
         }
     }
