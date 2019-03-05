@@ -29,6 +29,7 @@ public class Login<WebDr> {
 
         webDriver.get("http://v3.test.itpmgroup.com/dictionary/installation");
 
+
         System.out.println("Site was opened");
 
 
