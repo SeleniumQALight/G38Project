@@ -24,7 +24,7 @@ public class ParentTest {
         File file = new File("./src/drivers/chromedriver.exe"); //3.2.
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());  //3.4.
 
-        WebDriver webDriver = new ChromeDriver(); // 3.1.- создаем обьект хрома который будет обращаться к файлу ехе
+        webDriver = new ChromeDriver(); // 3.1.- создаем обьект хрома который будет обращаться к файлу ехе
 
         webDriver.manage().window().maximize(); // 3.2. обращаемся у менеджеру веб брукзера, говорим открой окно и максимайз - на весь екран
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//
