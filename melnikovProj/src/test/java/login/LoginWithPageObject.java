@@ -1,22 +1,32 @@
 package login;
 
-import javafx.scene.Parent;
 import org.junit.Test;
 import parentTest.ParentTest;
 
 public class LoginWithPageObject extends ParentTest {
-    @Test
-    public void validLogin(){
-        loginPage.openPage();
-        loginPage.enterTextInToInputLogin("Student");
-        loginPage.enterTextInToInputPass("909090");
-        loginPage.clickOnButtonSubmit();
 
-        checkExpectedResult (
-                "Avatar is not present",
+    @Test
+    public void validLogin () {
+
+        loginPage.openPage (); // in LoginPage - we create openPage method
+        loginPage.enterTextIntoInputLogin ("Student");
+        loginPage.enterTextIntoInputPassword("909090");
+        loginPage.clickOnEnterButton();
+
+        checkExpectedResult(
+                "Avatar is not Present",
                 homePage.isAvatarPresent ()
 
         );
 
     }
+
+    @Test
+    public void invalidLogin () {
+        loginPage.login("hfydhsbhfh", "909090");
+        checkExpectedResult("The avatar shouldn't be present",
+                !homePage.isAvatarPresent());
+    }
+
+
 }
