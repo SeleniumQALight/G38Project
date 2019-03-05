@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -98,4 +99,19 @@ public class ActionWithOurElements {
         }
     }
 
+    public boolean isElementPresent(By xpath) {
+        try {
+            return isElementPresent(webDriver.findElement(xpath));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(By xpath) {
+        try {
+            clickOnElement(webDriver.findElement(xpath));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
 }
