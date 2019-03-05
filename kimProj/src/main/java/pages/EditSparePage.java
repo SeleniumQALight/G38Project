@@ -15,6 +15,9 @@ public class EditSparePage extends ParentPage {
     @FindBy(id = "spares_spareType")
     private WebElement spareTypeDD;
 
+    @FindBy(name = "delete")
+    private WebElement buttonDelete;
+
     public EditSparePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -29,5 +32,9 @@ public class EditSparePage extends ParentPage {
 
     public void selectSpareTypeInDD(String spareType) {
         actionsWithElements.selectTextInDropDown(spareTypeDD, spareType);
+    }
+
+    public void clickButtonDelete() {
+        actionsWithElements.clickOnElement(buttonDelete);
     }
 }

@@ -7,9 +7,11 @@ public class AddNewSpare extends ParentTest {
     final String spareName = "kimSpare";
     @Test
     public void addNewSpare() {
+
         homePage.openToThisPage();
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubmenuSpare();
+        sparePage.deleteingSpareUntilPresent(spareName);
         sparePage.clickOnAddButton();
         editSparePage.enterSpareNameInToInput(spareName);
         editSparePage.selectSpareTypeInDD("Механика1");

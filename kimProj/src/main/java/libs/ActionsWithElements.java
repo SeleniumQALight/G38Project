@@ -124,4 +124,12 @@ public class ActionsWithElements {
             printErrorAndStopTest(e);
         }
     }
+
+    public void clickOnElement(By xpath) {
+        try{
+            clickOnElement(webDriver.findElement(xpath));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
 }
