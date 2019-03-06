@@ -4,20 +4,40 @@ package parentTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.LoginPage;
+
+import pages.*;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 
 public class ParentTest {
 
-    WebDriver driver;
+    private WebDriver driver;
+
+    protected Date dateNow = new Date();
+    protected SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy/MM/dd_hh:mm:ss");
+
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected ApparatPage apparatPage;
+    protected ApparatEditPage apparatEditPage;
+    protected WorkersPage workersPage;
+    protected WorkersEditPage workersEditPage;
+    protected SparesPage sparesPage;
+    protected SparesEditPage sparesEditPage;
+    protected ProvidersPage providersPage;
+    protected ProvidersEditPage providersEditPage;
+    protected InstallationPage installationPage;
+    protected InstallationEditPage installationEditPage;
+
+    protected String LOGIN = "Student";
+    protected String PASSWORD = "909090";
 
     @Before
     public void setUp() {
@@ -32,6 +52,16 @@ public class ParentTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        apparatPage = new ApparatPage(driver);
+        apparatEditPage = new ApparatEditPage(driver);
+        workersPage = new WorkersPage(driver);
+        workersEditPage = new WorkersEditPage(driver);
+        sparesPage = new SparesPage(driver);
+        sparesEditPage = new SparesEditPage(driver);
+        providersPage = new ProvidersPage(driver);
+        providersEditPage = new ProvidersEditPage(driver);
+        installationPage = new InstallationPage(driver);
+        installationEditPage = new InstallationEditPage(driver);
     }
 
     @After

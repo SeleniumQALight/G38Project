@@ -1,8 +1,9 @@
 package pages;
 
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 
 public class HomePage extends ParentPage {
@@ -11,15 +12,11 @@ public class HomePage extends ParentPage {
         super(driver);
     }
 
-
-    private By userAvatar = By.xpath(".//*[@class='pull-left image']");
+    @FindBy(xpath = ".//*[@class='pull-left image']")
+    private WebElement userAvatar;
 
 
     public boolean isAvatarPresent() {
-        try {
-            return driver.findElement(userAvatar).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        return actionsWithOurElements.isElementPresent(userAvatar);
     }
 }
