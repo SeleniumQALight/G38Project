@@ -9,6 +9,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import pages.*;
+import pages.dictionary.apparatPage.ApparatEditPage;
+import pages.dictionary.apparatPage.ApparatPage;
+import pages.dictionary.providersPage.ProvidersEditPage;
+import pages.dictionary.providersPage.ProvidersPage;
+import pages.dictionary.sparesPage.SparesEditPage;
+import pages.dictionary.sparesPage.SparesPage;
+import pages.dictionary.workersPage.WorkersEditPage;
+import pages.dictionary.workersPage.WorkersPage;
+import pages.installationPage.InstallationEditPage;
+import pages.installationPage.InstallationPage;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -24,7 +34,7 @@ public class ParentTest {
     protected SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy/MM/dd_hh:mm:ss");
 
     protected LoginPage loginPage;
-    protected HomePage homePage;
+    protected DashboardPage homePage;
     protected ApparatPage apparatPage;
     protected ApparatEditPage apparatEditPage;
     protected WorkersPage workersPage;
@@ -51,7 +61,7 @@ public class ParentTest {
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
+        homePage = new DashboardPage(driver);
         apparatPage = new ApparatPage(driver);
         apparatEditPage = new ApparatEditPage(driver);
         workersPage = new WorkersPage(driver);

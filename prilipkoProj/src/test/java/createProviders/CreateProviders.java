@@ -20,6 +20,6 @@ public class CreateProviders extends ParentTest {
 
         providersEditPage.privatPersonCheckbox("checked");
         providersEditPage.isOurFirmCheckbox("null");
-        providersEditPage.clickOnSubmitButton();
+        providersEditPage.clickOnCreateButton();
     }
 }

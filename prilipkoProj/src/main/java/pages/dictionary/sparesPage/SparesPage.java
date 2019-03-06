@@ -1,21 +1,40 @@
-package pages;
+package pages.dictionary.sparesPage;
 
 
 import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import pages.DashboardPage;
+import pages.LoginPage;
+import pages.ParentPage;
 
 
 public class SparesPage extends ParentPage {
+
+    @FindBy(xpath = ".//a[@class='btn btn-info btn-sm']")
+    private WebElement addButton;
+
 
     public SparesPage(WebDriver driver) {
         super(driver);
     }
 
-    public void openSparePage() {
 
+    public void openSparePage() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("Student", "909090");
+
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage.clickOnDictionaryMenu();
+        dashboardPage.clickOnSubMenuSpares();
+    }
+
+    public void clickAddButton() {
+        actionsWithOurElements.clickOnElement(addButton);
     }
 
     public boolean isSpareInList(String spareName) {

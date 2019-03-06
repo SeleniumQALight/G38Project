@@ -5,59 +5,84 @@ import libs.ActionsWithOurElements;
 
 import org.apache.log4j.Logger;
 
+import org.junit.Assert;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-class ParentPage {
+public class ParentPage {
 
-    WebDriver driver;
-
+    protected WebDriver driver;
     protected ActionsWithOurElements actionsWithOurElements;
 
-    Logger logger = Logger.getLogger(getClass());
+    private Logger logger = Logger.getLogger(getClass());
 
     public ParentPage(WebDriver driver) {
-
         this.driver = driver;
-
-        PageFactory.initElements(driver,this); // Создали объекты WebElement
-
+        PageFactory.initElements(driver,this);
         actionsWithOurElements = new ActionsWithOurElements(driver);
     }
 
-    @FindBy(xpath = ".//li[@id='dictionary']")
+
+    @FindBy(xpath = ".//li[@id='dashboard']//span")
+    private WebElement dashboardButton;
+
+    @FindBy(xpath = ".//li[@id='dictionary']//span")
     private WebElement dictionaryButton;
 
-    @FindBy(xpath = ".//li[@id='apparat']")
+    @FindBy(xpath = ".//li[@id='apparat']/a")
     private WebElement apparatButton;
 
-    @FindBy(xpath = ".//li[@id='workers']")
+    @FindBy(xpath = ".//li[@id='workers']/a")
     private WebElement workersButton;
 
-    @FindBy(xpath = ".//li[@id='spares']")
-    private WebElement spareButton;
+    @FindBy(xpath = ".//li[@id='spareType']/a")
+    private WebElement spareTypeButton;
 
-    @FindBy(xpath = "//li[@id='prov_cus']")
+    @FindBy(xpath = ".//li[@id='spares']/a")
+    private WebElement sparesButton;
+
+    @FindBy(xpath = "//li[@id='prov_cus']/a")
     private WebElement providersButton;
 
-    @FindBy(xpath = ".//li[@id='installation']")
+    @FindBy(xpath = "//li[@id='deal_type']/a")
+    private WebElement dealTypeButton;
+
+    @FindBy(xpath = ".//li[@id='service_apparat']//span")
+    private WebElement serviceButton;
+
+    @FindBy(xpath = ".//li[@id='installation']//span")
     private WebElement installationButton;
 
-    @FindBy(xpath = ".//button[@type='submit']")
-    private WebElement submitButton;
+    @FindBy(xpath = ".//li[@id='deal']//span")
+    private WebElement dealButton;
 
-    @FindBy(xpath = ".//a[@class='btn btn-info btn-sm']")
-    private WebElement addButton;
+    @FindBy(xpath = ".//li[@id='report']//span")
+    private WebElement statisticButton;
 
+
+    public void openPage() {
+        try {
+            driver.get("http://v3.test.itpmgroup.com/login");
+            logger.info("Login page was opened");
+        } catch (Exception e) {
+            logger.error("Cannot open login page" + e);
+            Assert.fail("Cannot open login page" + e);
+        }
+    }
+
+    public void clickOnDashboardMenu() {
+        actionsWithOurElements.clickOnElement(dashboardButton);
+    }
 
     public void clickOnDictionaryMenu() {
         actionsWithOurElements.clickOnElement(dictionaryButton);
     }
 
-    public void clickOnApparatButton() {
+    public void clickOnSubMenuApparat() {
         actionsWithOurElements.clickOnElement(apparatButton);
     }
 
@@ -65,23 +90,35 @@ class ParentPage {
         actionsWithOurElements.clickOnElement(workersButton);
     }
 
+    public void clickOnSubMenuSpareType() {
+        actionsWithOurElements.clickOnElement(spareTypeButton);
+    }
+
     public void clickOnSubMenuSpares() {
-        actionsWithOurElements.clickOnElement(spareButton);
+        actionsWithOurElements.clickOnElement(sparesButton);
     }
 
     public void clickOnSubMenuProviders() {
         actionsWithOurElements.clickOnElement(providersButton);
     }
 
+    public void clickOnSubMenuDealType() {
+        actionsWithOurElements.clickOnElement(dealTypeButton);
+    }
+
+    public void clickOnServiceMenu() {
+        actionsWithOurElements.clickOnElement(serviceButton);
+    }
+
     public void clickOnInstallationMenu() {
         actionsWithOurElements.clickOnElement(installationButton);
     }
 
-    public void clickOnSubmitButton() {
-        actionsWithOurElements.clickOnElement(submitButton);
+    public void clickOnDealMenu() {
+        actionsWithOurElements.clickOnElement(dealButton);
     }
 
-    public void clickAddButton() {
-        actionsWithOurElements.clickOnElement(addButton);
+    public void clickOnStatisticMenu() {
+        actionsWithOurElements.clickOnElement(statisticButton);
     }
 }

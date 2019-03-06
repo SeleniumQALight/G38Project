@@ -14,12 +14,12 @@ public class CreateApparat extends ParentTest {
         loginPage.login(LOGIN, PASSWORD);
 
         homePage.clickOnDictionaryMenu();
-        homePage.clickOnApparatButton();
+        homePage.clickOnSubMenuApparat();
 
         apparatPage.clickAddButton();
 
         apparatEditPage.inputApparatNumber("6237");
         apparatEditPage.inputApparatComment("Mitsubishi Lancer, SN: " + formatForDateNow.format(dateNow));
-        apparatEditPage.clickOnSubmitButton();
+        apparatEditPage.clickOnCreateButton();
     }
 }

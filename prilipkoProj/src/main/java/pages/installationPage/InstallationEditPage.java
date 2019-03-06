@@ -1,9 +1,10 @@
-package pages;
+package pages.installationPage;
 
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.ParentPage;
 
 
 public class InstallationEditPage extends ParentPage {
@@ -33,8 +34,11 @@ public class InstallationEditPage extends ParentPage {
     @FindBy(xpath = ".//select[@id='installation_worker']")
     private WebElement workerSelect;
 
+    @FindBy(xpath = ".//button[@type='submit']")
+    private WebElement createButton;
 
-    public void selectInstalattionDate(String day, String month, String year, String hour, String minute) {
+
+    public void selectInstallationDate(String day, String month, String year, String hour, String minute) {
         actionsWithOurElements.selectValueInDropdown(installationDaySelect, day);
         actionsWithOurElements.selectValueInDropdown(installationMonthSelect, month);
         actionsWithOurElements.selectValueInDropdown(installationYearSelect, year);
@@ -48,5 +52,9 @@ public class InstallationEditPage extends ParentPage {
 
     public void selectWorker(String text) {
         actionsWithOurElements.selectTextInDropdownByUi(workerSelect,text);
+    }
+
+    public void clickOnCreateButton() {
+        actionsWithOurElements.clickOnElement(createButton);
     }
 }
