@@ -3,6 +3,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -37,6 +38,7 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
     }
+
     public boolean isElementPresent (WebElement webElement) {
         try {
             boolean isDisplayed = webElement.isDisplayed();
@@ -47,6 +49,7 @@ public class ActionsWithOurElements {
             return false;
         }
     }
+
     public void selectTextInDD(WebElement element, String text) {
         try {
             Select select = new Select(element);
@@ -56,6 +59,7 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
     }
+
     public void selectValueInDD(WebElement element, String value) {
         try {
             Select select = new Select(element);
@@ -65,4 +69,27 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
     }
+
+    public boolean isElementPresent(By xpath) {
+        try {
+            return isElementPresent(webDriver.findElement(xpath));
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(By xpath) {
+    try {
+        clickOnElement(webDriver.findElement(xpath));
+    }catch (Exception e) {
+        printErrorAndStopTest(e);
+    }
+    }
+
+//    public void setStatusToCheckBox (WebElement element, String text) {
+//        if (checkbox != selected ) {
+//
+//        }
+//
+//    }
 }

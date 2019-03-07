@@ -42,6 +42,7 @@ public class LoginPage extends ParentPage {
 //        }//вместо всего этого одна строка снизу
         actionsWithOurElements.enterTextIntoElement(inputLogin, login);
     }
+
     public void enterTextInToInputPass (String pass) {
 //        try {
 //            inputPass.clear();
@@ -53,6 +54,7 @@ public class LoginPage extends ParentPage {
 //        }
         actionsWithOurElements.enterTextIntoElement(inputPass, pass);
     }
+
     public void clickOnButtonSubmit () {
 //        try {
 //            button.click();
