@@ -2,8 +2,10 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -16,26 +18,72 @@ public class ActionsWithOurElements {
     public void enterTextInToElement(WebElement element, String text) {
         try {
             element.clear();
-            element.sendKeys();
-            logger.info(text + " was input in toelement");
+            element.sendKeys(text);
+            logger.info(text + " was input in to element");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
     private void printErrorAndStopTest(Exception e) {
-        logger.error("Can not workwith element" + e);
-        Assert.fail("Can not workwith element" + e);
+        logger.error("Can not work with element" + e);
+        Assert.fail("Can not work with element" + e);
     }
 
     public void clickOnElement(WebElement element) {
         try {
             element.click();
-            logger.info("Elementwas clicked");
+            logger.info("Element was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
+    }
 
+    public boolean isElementPresent(WebElement webElement) {
+        try {
+            boolean isDisplayed = webElement.isDisplayed();
+            logger.info("Element is displayed -> " + isDisplayed);
+            return isDisplayed;
+        } catch (Exception e) {
+            logger.info("Element is display -> false");
+            return false;
+        }
+    }
+
+    public void selectTextInDD(WebElement element, String text) {
+        try {
+            Select select = new Select(element);
+            select.selectByVisibleText(text);
+            logger.info(text + " was selected in DD");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void selectValueInDD(WebElement element, String value) {
+        try {
+            Select select = new Select(element);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DD");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public boolean isElementPresent(By xpath) {
+        try{
+            return isElementPresent(webDriver.findElement(xpath));
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public void clickOnElement(By xpath) {
+        try{
+            clickOnElement(webDriver.findElement(xpath));
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
     }
 }
 

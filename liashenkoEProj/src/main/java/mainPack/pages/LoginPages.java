@@ -20,6 +20,9 @@ public class LoginPages extends ParentPage {
     @FindBy(tagName = "button")
     private WebElement button;
 
+    @FindBy(xpath = ".//i[@class = 'fa fa-cogs']")
+    private WebElement buttonSetting;
+
 
     public void openPages() {
         try {
@@ -46,10 +49,15 @@ public class LoginPages extends ParentPage {
 
     public void login(String login, String password) {
         openPages();
-        enterTextInToInputPass(password);
         enterTextInToInputLogin(login);
+        enterTextInToInputPass(password);
         clickOnButtonSubmit();
     }
+
+    public void clickOnSettingButton(){
+        actionsWithOurElements.clickOnButton(buttonSetting);
+    }
+
 }
 
 
