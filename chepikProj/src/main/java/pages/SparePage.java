@@ -39,4 +39,17 @@ public class SparePage extends ParentPage {
     private void clickOnSpare(String spareName) {
         actionsWithOurElements.clickOnElement(By.xpath(".//*[text()='"+spareName+"']"));
     }
+
+    public void clickOnExistSpareName(String spareName) {
+        int counter = 0;
+        EditSparePage editSparePage = new EditSparePage(webDriver);
+        while (isSpareInList(spareName)) {
+            clickOnSpare(spareName);
+            editSparePage.clickOnButtonDelete();
+            counter++;
+            if (counter > 100) {
+                Assert.fail("There are more then 100 spare");
+             }
+        }
+    }
 }

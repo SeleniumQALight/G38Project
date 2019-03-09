@@ -1,5 +1,6 @@
 package sparTest;
 
+import org.junit.After;
 import org.junit.Test;
 import parentTest.ParentTeest;
 
@@ -17,5 +18,10 @@ public class AddnewSpare extends ParentTeest {
         editSparePage.clickOnButtonCreate();
 
         checkExpectedResult("Spare was not added", sparePage.isSpareInList(spareName));
+
+    }
+    @After
+    public void deleteSpare () {
+        sparePage.clickOnExistSpareName (spareName);
     }
 }
