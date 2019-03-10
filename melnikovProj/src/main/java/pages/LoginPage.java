@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver; //1. Добавляем наследова
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class LoginPage extends ParentPage {// 1.1. СОздался конструктор
     public LoginPage(WebDriver webDriver) { // 1.1. СОздался конструктор
         super(webDriver);  // 1.1. СОздался конструктор
@@ -31,7 +32,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
     }
 
     public void enterTextIntoInputLogin(String login) {
-        actionsWithOurElements.clickOnElement(inputLogin, login);
+        actionsWithOurElements.enterTextInToElement(inputLogin, login);
 
     }
  /*       try {
@@ -47,7 +48,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
 
   */
     public void enterTextIntoInputPassword (String password) {
-        actionsWithOurElements.clickOnElement(inputPass, password);
+        actionsWithOurElements.enterTextInToElement(inputPass, password);
     }
 /*        try {
             inputPass.clear(); // we cleaned the field for login
@@ -74,7 +75,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
         */
     }
 
-    public void login(String login, String password) {
+    public void login (String login, String password) {
     openPage();
     enterTextIntoInputLogin(login);
     enterTextIntoInputPassword(password);

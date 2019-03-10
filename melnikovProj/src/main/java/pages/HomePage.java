@@ -1,12 +1,9 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Dictionary;
 // HomePage we create in PARENT TEST!!!!!!
 
 public class HomePage extends ParentPage {
@@ -27,16 +24,18 @@ public class HomePage extends ParentPage {
        return actionsWithOurElements.isElementPresent(avatar);
 
     }
-    public void goThisPage(){
-        loginPage loginPage = new loginPage (webDriver);
-        looginPage.login ("student", "909090");
+    public void goToThisPage() {
+        LoginPage loginPage = new LoginPage(webDriver);
+        loginPage.login ("student", "909090");
         Assert.assertEquals("Avatar is not present", true, isAvatarPresent());
-        
-        public void clickOnMenuDictionary(){
-            actionsWithOurElements.clickOnElement(menuDictionary);
-        }
-        public void clickOnSubMenu(){
+    }
 
-        }
+
+    public void clickOnMenuDictionary() {
+        actionsWithOurElements.clickOnElement(menuDictionary);
+    }
+
+    public void clickOnSubMenuSpare() {
+        actionsWithOurElements.clickOnElement(subMenuSpare);
     }
 }
