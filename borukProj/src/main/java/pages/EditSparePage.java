@@ -21,6 +21,7 @@ public class EditSparePage extends ParentPage {
 
     public void clickOnButtonCreate() {
         actionsWithOurElements.clickOnElement(buttonAdd);
+        logger.info("Element has been created successfully");
     }
 
     public void enterSpareNameInToInput(String spareName) {
