@@ -134,6 +134,11 @@ public class ActionsWithElements {
     }
 
 
+    /**
+     * set check box status [neededState] can be only "check" or "uncheck"
+     * @param element
+     * @param neededState can be "check" or "uncheck"
+     */
     public void setStatusToCheckBox(WebElement element, String neededState) {
         if("check".equals(neededState) || "uncheck".equals(neededState)) {
             try{
