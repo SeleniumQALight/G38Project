@@ -86,8 +86,12 @@
       </plugins>
     </pluginManagement>
     <resources>
-      <resource><directory>src/resourses</directory></resource>
-      <resource><directory>src/main/java</directory></resource>
+    <resource>
+      <directory>src/resources</directory>
+    </resource>
+      <resource>
+        <directory>src/main/java</directory>
+      </resource>
     </resources>
   </build>
 </project>
