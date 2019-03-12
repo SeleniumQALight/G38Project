@@ -14,14 +14,14 @@ public class CreateInstallation extends ParentTest {
         loginPage.login(LOGIN, PASSWORD);
 
         homePage.clickOnDictionaryMenu();
-        homePage.clickOnApparatButton();
+        homePage.clickOnSubMenuApparat();
 
         apparatPage.clickAddButton();
 
         apparatEditPage.inputApparatNumber("6237");
         apparatEditPage.inputApparatComment("Mitsubishi Lancer, SN: " + formatForDateNow.format(dateNow));
         String APPARAT = apparatEditPage.getApparatComment();
-        apparatEditPage.clickOnSubmitButton();
+        apparatEditPage.clickOnCreateButton();
 
         apparatEditPage.clickOnSubMenuWorkers();
 
@@ -33,15 +33,15 @@ public class CreateInstallation extends ParentTest {
         workersEditPage.inputWorkerName("Oleksandr");
         workersEditPage.inputWorkerMiddleName(WORKER_MIDDLE_NAME);
         workersEditPage.inputWorkerPhone("+38(063)834-99-22");
-        workersEditPage.clickOnSubmitButton();
+        workersEditPage.clickOnCreateButton();
 
         workersPage.clickOnInstallationMenu();
 
         installationPage.clickAddButton();
 
-        installationEditPage.selectInstalattionDate("15", "7", "2014", "13", "45");
+        installationEditPage.selectInstallationDate("15", "7", "2014", "13", "45");
         installationEditPage.selectInstallationApparat(APPARAT);
         installationEditPage.selectWorker(WORKER_MIDDLE_NAME);
-        installationEditPage.clickOnSubmitButton();
+        installationEditPage.clickOnCreateButton();
     }
 }

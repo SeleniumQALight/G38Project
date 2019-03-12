@@ -33,8 +33,9 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) {
         try {
+            String buttonName = webElement.getText();
             webElement.click();
-            logger.info("Button Submit was clicked");
+            logger.info("Element " + "'" + buttonName + "'" +" was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
