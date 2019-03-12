@@ -1,11 +1,15 @@
 package spareTest;
 
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 import parentTest.ParentTest;
+
 
 public class AddNewSpare extends ParentTest {
 
-    final String spareName = "gorbanSpare";
+    final String spareName = "gorbanSpare111";
 
     @Test
     public void addNewSpare() {
@@ -21,5 +25,12 @@ public class AddNewSpare extends ParentTest {
         checkExpectedResult("Spare was not added",
                 sparePage.isSpareInList(spareName));
     }
+
+    @After
+    public  void  deletingSpare(){
+        sparePage.deletingSpareUntilPresent(spareName);
+    }
+
+
 
 }
