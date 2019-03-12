@@ -2,13 +2,14 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithElements {
     WebDriver webDriver;
-    Logger logger = Logger.getLogger(getClass()); //инициализировали логер
+    Logger logger = Logger.getLogger(ActionsWithElements.class); //инициализировали логер
 
     public ActionsWithElements(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -53,6 +54,14 @@ public class ActionsWithElements {
         }
     }
 
+    public boolean isElementDisplayed(By xpath) {
+        try{
+            return isElementDisplayed(webDriver.findElement(xpath));
+        } catch (Exception e){
+            return false;
+        }
+    }
+
     public void selectTextInDropDown(WebElement dropDown, String text) {
         try {
             Select select = new Select(dropDown);
@@ -73,6 +82,54 @@ public class ActionsWithElements {
         }
     }
 
-    //Select value in dropdown by UI
-    // checkbox.isSeleted -3 statuses method "if" Webelement element, Strint status
+    /**
+     * Set status for checkbox can be "IsDisable", "dropDownIsSelected", "dropDownIsNotSelected"
+     * @param webElement
+     * @return
+     */
+    public String setStatusToCheckBox(WebElement webElement) {
+        boolean isElementEnable = webElement.isEnabled();
+        boolean isDropDownSelected = webElement.isSelected();
+
+        if (isElementEnable == true && isDropDownSelected == false) {
+            return "dropDownIsNotTicked";
+        } else if (isElementEnable == true && isDropDownSelected == true) {
+            return "dropDownIsTicked";
+        } else {
+            return "IsDisable";
+        }
+    }
+
+    public void clickOnCheckbox(WebElement webElement, String expectedStatus) {
+        String checkBoxStatus = setStatusToCheckBox(webElement);
+        if( expectedStatus == "IsDisable" && expectedStatus == checkBoxStatus) {
+            logger.info("checkbox is desable");
+        }
+        else if (expectedStatus == "IsDisable" && expectedStatus != checkBoxStatus) {
+            Assert.fail("Expected status = " + expectedStatus + " but checkbox status = " + checkBoxStatus);
+        }
+
+        else if (expectedStatus == checkBoxStatus) {
+            webElement.click();
+        }
+        else if(expectedStatus != checkBoxStatus) {
+        }
+    }
+
+    public void dropDown(WebElement dropDown, WebElement value) {
+        try {
+            clickOnElement(dropDown);
+            clickOnElement(value);
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void clickOnElement(By xpath) {
+        try{
+            clickOnElement(webDriver.findElement(xpath));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
 }
