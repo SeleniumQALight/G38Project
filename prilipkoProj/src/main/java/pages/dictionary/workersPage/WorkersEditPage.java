@@ -1,9 +1,10 @@
-package pages;
+package pages.dictionary.workersPage;
 
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.ParentPage;
 
 
 public class WorkersEditPage extends ParentPage {
@@ -24,6 +25,9 @@ public class WorkersEditPage extends ParentPage {
     @FindBy(xpath = ".//input[@id='workers_workerPhone']")
     private WebElement workerPhoneField;
 
+    @FindBy(xpath = ".//button[@type='submit']")
+    private WebElement createButton;
+
 
     public void inputWorkerSurname(String surname) {
         actionsWithOurElements.enterTextInToElement(workerSurnameField, surname);
@@ -39,5 +43,9 @@ public class WorkersEditPage extends ParentPage {
 
     public void inputWorkerPhone(String phone) {
         actionsWithOurElements.enterTextInToElement(workerPhoneField, phone);
+    }
+
+    public void clickOnCreateButton() {
+        actionsWithOurElements.clickOnElement(createButton);
     }
 }
