@@ -33,8 +33,8 @@ public class SparePage extends ParentPage {
             if (counter > 100) {
                 Assert.fail("There are more than 100 spare");
             }
-
         }
+        logger.info(counter + "Spares have been deleted");
     }
 
     private void clickOnSpare(String spareName) {
