@@ -1,7 +1,7 @@
 package parentTest;
 
 import mainPack.pages.HomePage;
-import mainPack.pages.LoginPages;
+import mainPack.loginPage.LoginPages;
 import mainPack.pages.SettingPage;
 import mainPack.pages.VocabularyPage;
 import org.junit.After;
