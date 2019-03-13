@@ -1,30 +1,27 @@
-package sparSpare;
+package spareTest;
 
 import org.junit.After;
 import org.junit.Test;
 import parentTest.ParentTest;
 
 public class AddNewSpare extends ParentTest {
-
-    final String spareName = "skljarSpare";
-
+    final String spareName = "DukhninSpare";
     @Test
     public void addNewSpare(){
-        homePage.goToThisPage();
-        homePage.clickOnMenuictitionary();
+        homePage.goToThisPage ();
+        homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpare();
         sparePage.deletingSpareUntilPresent(spareName);
         sparePage.clickOnAddButton();
-        editSparePage.enterSpareNameIntoInput(spareName);
+        editSparePage.enterSpareNameInToInput(spareName);
         editSparePage.selectSpareTypeInDD("Механика1");
         editSparePage.clickOnButtonCreate();
 
-        checkExpectedResult("Spare was not added",
-                sparePage.isSpareinList(spareName));
+        checkEcpectedResult("Spare was not added", sparePage.isSpareInList(spareName));
     }
 
     @After
-    public void deletingSpare(){
+    public void deletingSpare () {
         sparePage.deletingSpareUntilPresent(spareName);
     }
 }

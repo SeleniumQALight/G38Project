@@ -41,7 +41,7 @@ public class SettingWithPageObject extends ParentTest {
         loginPages.clickOnSettingButton();
         settingPage.selectElement();
         vocabularyPage.clickOnButtonAddPart();
-        vocabularyPage.workWithCheckBox("chack");
+        vocabularyPage.workWithCheckBox("check");
         vocabularyPage.enterTextToInputSpareCount("123456");
         vocabularyPage.selectSetting();
         vocabularyPage.selectPart();
