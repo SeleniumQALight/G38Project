@@ -12,7 +12,6 @@ public class LoginPage extends ParentPage{
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
-
     @FindBy(name = "_username")
     private WebElement inputLogin; // object should create after new
 

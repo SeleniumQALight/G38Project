@@ -1,6 +1,7 @@
 package pages;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,8 +9,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
 
-    @FindBy(xpath = ".//div[@class='login-logo']//b")
-    private WebElement mainHeadline;
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(xpath = ".//input[@placeholder='Email']")
     private WebElement emailField;
@@ -21,10 +23,15 @@ public class LoginPage extends ParentPage {
     private WebElement submitButton;
 
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public void openPage() {
+        try {
+            driver.get("http://v3.test.itpmgroup.com/login");
+            System.out.println("Login page was opened");
+        } catch (Exception e) {
+            System.out.println("Cannot open login page" + e);
+            Assert.fail("Cannot open login page" + e);
+        }
     }
-
 
     public void enterTextInToInputLogin(String login) {
         actionsWithOurElements.enterTextInToElement(emailField,login);
@@ -36,12 +43,5 @@ public class LoginPage extends ParentPage {
 
     public void clickOnSubmitButton() {
         actionsWithOurElements.clickOnElement(submitButton);
-    }
-
-    public void login(String login, String password) {
-        openPage();
-        enterTextInToInputLogin(login);
-        enterTextInToInputPassword(password);
-        clickOnSubmitButton();
     }
 }

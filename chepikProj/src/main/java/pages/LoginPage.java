@@ -24,9 +24,9 @@ public class LoginPage extends ParentPage {
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
-            logger.info("Login page was open");
+            System.out.println("Login page was open");
         } catch (Exception e) {
-            logger.error("Can not open login page" + e);
+            System.out.println("Can not open login page" + e);
             Assert.fail("Can not open login page");
         }
     }
@@ -42,7 +42,6 @@ public class LoginPage extends ParentPage {
 //        }//вместо всего этого одна строка снизу
         actionsWithOurElements.enterTextIntoElement(inputLogin, login);
     }
-
     public void enterTextInToInputPass (String pass) {
 //        try {
 //            inputPass.clear();
@@ -54,7 +53,6 @@ public class LoginPage extends ParentPage {
 //        }
         actionsWithOurElements.enterTextIntoElement(inputPass, pass);
     }
-
     public void clickOnButtonSubmit () {
 //        try {
 //            button.click();
@@ -64,12 +62,5 @@ public class LoginPage extends ParentPage {
 //            Assert.fail("Can not work with element");
 //        }
         actionsWithOurElements.clickOnElement (button);
-    }
-
-    public void login(String login, String passWord) {
-        openPage();
-        enterTextInToInputLogin(login);
-        enterTextInToInputPass(passWord);
-        clickOnButtonSubmit();
     }
 }

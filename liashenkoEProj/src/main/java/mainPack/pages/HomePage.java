@@ -17,7 +17,4 @@ public class HomePage extends ParentPage {
        return actionsWithOurElements.isAlementPresent(avatar);
 
     }
-
-    public void goToThisPage() {
-    }
 }

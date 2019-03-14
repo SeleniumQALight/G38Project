@@ -23,5 +23,4 @@ public class loginWithPageObject extends ParentTest {
         loginPage.login("SashaGrey", "XXX");
         checkExpectedResult("Avatar is present", !homePage.isAvatarPresent()); // "!" - инверсия
     }
-
 }

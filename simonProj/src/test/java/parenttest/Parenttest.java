@@ -5,9 +5,9 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.*;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -17,9 +17,6 @@ public class Parenttest {
 
     protected LoginPage loginPage;
     protected HomePage homePage;
-    protected DictionaryPage dictionaryPage;
-    protected SparePage sparePage;
-    protected EditSparePAge editSparePAge;
     Logger logger = Logger.getLogger(getClass());
 
 
@@ -33,17 +30,13 @@ public class Parenttest {
 
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
-        sparePage = new SparePage(webDriver);
-        editSparePAge = new EditSparePAge(webDriver);
-        dictionaryPage = new DictionaryPage(webDriver);
-
 
     }
 
 
     @After
     public void tearDown() {
-     //   webDriver.quit();
+        webDriver.quit();
 
     }
 
@@ -51,6 +44,4 @@ public class Parenttest {
         Assert.assertEquals(message, true, actualResult);
 
     }
-
-
 }
