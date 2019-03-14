@@ -1,7 +1,10 @@
 package login;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import parentTest.ParentTest;
+
 
 public class LoginWithPageObject extends ParentTest {
 
@@ -9,20 +12,13 @@ public class LoginWithPageObject extends ParentTest {
     public void validLogin() {
 
         loginPage.openPage();
-        loginPage.enterTextIntoInputLogin("Student");
-        loginPage.enterTextIntoInputPass("909090");
+        loginPage.enterTextInToInputLogin("Student");
+        loginPage.enterTextInToInputPass("909090");
         loginPage.clickOnButtonSubmit();
 
         checkExpectedResult(
                 "Avatar is not present",
-                (Boolean) homePage.isAvatarPresent()
+                homePage.isAvatarPresent()
         );
-    }
-
-    @Test
-    public void invalidLogin(){
-        loginPage.login("Invalid login", "909090");
-        checkExpectedResult("Avatar was not present",
-                !homePage.isAvatarPresent());
     }
 }

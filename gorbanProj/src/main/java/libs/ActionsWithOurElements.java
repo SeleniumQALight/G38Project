@@ -130,5 +130,4 @@ public class ActionsWithOurElements {
             Assert.fail("State should be 'check' or 'uncheck'");
         }
     }
-
 }

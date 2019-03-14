@@ -1,4 +1,5 @@
 package login;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -8,9 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class Login<WebDr> {
-
-    //создать вебдрайвер
+public class Login {
 
     @Test
 
@@ -25,11 +24,7 @@ public class Login<WebDr> {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-
-
-        webDriver.get("http://v3.test.itpmgroup.com/dictionary/installation");
-
-
+        webDriver.get("http://v3.test.itpmgroup.com");
         System.out.println("Site was opened");
 
 
@@ -38,10 +33,9 @@ public class Login<WebDr> {
         webDriver.findElement(By.id("password")).sendKeys("909090");
 
         webDriver.findElement(By.tagName("button")).click();
+        Assert.assertTrue("Avatar is not present",webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed());
 
-        Assert.assertTrue("avatar is not present",webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed()); //если true - тест пройден (аватарка)
-
-       // webDriver.quit(); // close - закр. вкладку
+        webDriver.quit();
     }
 }
 

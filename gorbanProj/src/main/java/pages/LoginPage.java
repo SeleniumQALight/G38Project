@@ -6,12 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 public class LoginPage extends ParentPage {
 
+    public LoginPage(WebDriver webDriver) {
+        super(webDriver);
+    }
 
-    @FindBy(name = "_username") // id/path
-    private WebElement inputLogin;      // обьявление веб-елемента
+    @FindBy(name = "_username")// id/path
+    private WebElement inputLogin;   // обьявление веб-елемента
 
     @FindBy(id = "password") // id/path
     private WebElement inputPass;
@@ -19,32 +21,19 @@ public class LoginPage extends ParentPage {
     @FindBy(tagName = "button")
     private WebElement button;
 
-
-
-
-
-
-
-
-
-    public LoginPage(WebDriver webDriver) {
-        super(webDriver);
-    }
-
     public void openPage() {
-
         try {
-            webDriver.get("http://v3.test.itpmgroup.com/login");
-
+            webDriver.get("http://v3.test.itpmgroup.com");
+//            System.out.println("Login page was opened");
             logger.info("Login page was open");
         } catch (Exception e) {
+//            System.out.println("Can not open Login page" + e);
             logger.info("Can not open Login page " + e);
-            Assert.fail("Can not open Login page " + e);
+            Assert.fail("Can not open Login page" + e);
         }
-
     }
 
-    public void enterTextIntoInputLogin(String login) {
+    public void enterTextInToInputLogin(String login) {
 //         try {
 //             inputLogin.clear();
 //             inputLogin.sendKeys(login);
@@ -53,10 +42,10 @@ public class LoginPage extends ParentPage {
 //             System.out.println("Cant work with ellement" + e);
 //             Assert.fail("Cant work with ellement + e");
 //         }
-        actionsWithOurElements.enterTextIntoElement(inputLogin, login);   // заменили вместо try
+        actionsWithOurElements.enterTextIntoElement(inputLogin, login);
     }
 
-    public void enterTextIntoInputPass(String pass) {
+    public void enterTextInToInputPass(String pass) {
 //        try {
 //            inputPass.clear();
 //            inputPass.sendKeys(pass);
@@ -77,15 +66,15 @@ public class LoginPage extends ParentPage {
 //             System.out.println("Cant work with ellement" + e);
 //             Assert.fail("Cant work with ellement + e");
 //         }
-
         actionsWithOurElements.clickOnElement(button);
     }
 
 
     public void login(String invalidLogin, String password) {
         openPage();
-        enterTextIntoInputLogin(invalidLogin);
-        enterTextIntoInputPass(password);
+        enterTextInToInputLogin(invalidLogin);
+        enterTextInToInputPass(password);
         clickOnButtonSubmit();
     }
+
 }

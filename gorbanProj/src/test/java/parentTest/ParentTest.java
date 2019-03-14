@@ -22,7 +22,7 @@ public class ParentTest {
     protected EditSparePage editSparePage;
 
     @Before
-    public void before() {
+    public void setUp() {
 
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
@@ -39,7 +39,7 @@ public class ParentTest {
 
 
     @After
-    public void after() {
+    public void tearDown() {
         webDriver.quit();
     }
 
