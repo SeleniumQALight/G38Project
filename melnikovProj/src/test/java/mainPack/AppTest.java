@@ -10,11 +10,16 @@ import org.junit.Test;
 public class AppTest 
 {
     /**
-     * Rigorous Test :-)
+     * Rigorous Test :-) you added the comment. Could you commit them?
+     * AND this is for your second commit
+     * AND also for second commit
+     *
+     *
      */
     @Test
     public void shouldAnswerWithTrue()
     {
         assertTrue( true );
     }
+
 }
