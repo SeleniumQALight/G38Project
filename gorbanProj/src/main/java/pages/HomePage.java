@@ -30,7 +30,7 @@ public class HomePage extends ParentPage {
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.login("Student", "909090");
         Assert.assertEquals("Avatar is not present"
-                , true, isAvatarPresent()
+                ,  isAvatarPresent(),true
         );
     }
 
