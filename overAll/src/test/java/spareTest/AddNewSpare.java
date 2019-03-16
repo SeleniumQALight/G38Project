@@ -25,5 +25,6 @@ public class AddNewSpare extends ParentTest{
     @After
     public void deletingSpare(){
         sparePage.deletingSpareUntilPresent(spareName);
+
     }
 }
