@@ -1,5 +1,6 @@
 package spare;
 
+import org.junit.After;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -18,6 +19,11 @@ final String spareName="lyashenco";
 
          checkExpectedResult("Spare was not added",
                  sparPage.isSpareInList(spareName));
+    }
+
+    @After
+    public void deletimgSpare(){
+        sparPage.deletingSpareUntilPresent(spareName);
     }
 
 }

@@ -30,3 +30,7 @@ public class AddNewSpare extends ParentTest {
         sparesPage.deletingSpareUntilPresent(SPARE_NAME);
     }
 }
+
+// 1.
+// 2. implicitlyWait(5, TimeUnit.SECONDS); -- не явное ожидание
+// 3. Thread.sleep(1000)
