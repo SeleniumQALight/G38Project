@@ -1,29 +1,26 @@
 package login;
 
+import libs.ExcelDriver;
 import org.junit.Test;
 import parentTest.ParentTest;
 
+import java.io.IOException;
+import java.util.Map;
+
 public class LoginWithPageObject extends ParentTest {
     @Test
-    public void validLogin() {
+    public void validLogin() throws IOException {
+        ExcelDriver excelDriver = new ExcelDriver();
+        Map dataForValidLogin = excelDriver.getData(configProperties.DATA_FILE(), "validLogOn");
         loginPages.openPages();
-        loginPages.enterTextInToInputLogin("Student");
-        loginPages.enterTextInToInputPass("909090");
+        loginPages.enterTextInToInputLogin(dataForValidLogin.get("login").toString());
+        loginPages.enterTextInToInputPass(dataForValidLogin.get("pass").toString());
         loginPages.clickOnButtonSubmit();
 
         checkExpectedResult(
                 "Avatar is not present",
                 homePage.isAvatarPresent());
 
-    }
-
-    @Test
-    public void invalidLogin() {
-        loginPages.login("fsdfdds", "909090");
-
-        checkExpectedResult(
-                "Avatar should not be present",
-                !homePage.isAvatarPresent());
     }
 }
 
