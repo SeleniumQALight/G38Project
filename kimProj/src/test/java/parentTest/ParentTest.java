@@ -1,6 +1,8 @@
 package parentTest;
 
 import libs.ActionsWithElements;
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
@@ -22,6 +24,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
     WebDriver webDriver;
+    protected static ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
+
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected SparePage sparePage;
