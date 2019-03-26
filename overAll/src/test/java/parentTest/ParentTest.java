@@ -1,5 +1,7 @@
 package parentTest;
 
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +17,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
     WebDriver webDriver;
+    protected static ConfigProperties configProperties
+            = ConfigFactory.create(ConfigProperties.class);
+
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected SparePage sparePage;
