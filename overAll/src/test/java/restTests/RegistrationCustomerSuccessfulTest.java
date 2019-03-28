@@ -11,8 +11,8 @@ import static libs.Utils.getDateAndTimeFormated;
 public class RegistrationCustomerSuccessfulTest {
     @Test
     public void registrationSuccessful() {
-        String dateTime = getDateAndTimeFormated();
-//        dateTime = "2018-12-09_23-29-14";
+//        String dateTime = getDateAndTimeFormated();
+        String dateTime = "2019-03-28_21-35-10";
 
         JSONObject requestParams = new JSONObject();
         requestParams.put("FirstName", "Virender" + dateTime); // Cast
