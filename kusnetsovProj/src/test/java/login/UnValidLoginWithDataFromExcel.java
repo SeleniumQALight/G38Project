@@ -24,7 +24,7 @@ public class UnValidLoginWithDataFromExcel extends ParentTest {
     @Parameterized.Parameters(name = "Parameters are {0} and {1}")
     public static Collection testData() throws IOException {
         InputStream spreadsheet
-                = new FileInputStream(configProperties.DATA_FILE_PATH()+"testDataSuit.xls");
+                = new FileInputStream(configProperties.DATA_FILE_PATH() + "testDataSuit.xls");
         return new SpreadsheetData(spreadsheet, "InvalidLogOn").getData();
     }
 
