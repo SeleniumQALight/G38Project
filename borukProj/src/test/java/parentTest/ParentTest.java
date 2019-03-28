@@ -1,5 +1,7 @@
 package parentTest;
 
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,6 +20,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
     public WebDriver webDriver;
+    //protected static ConfigProperties configProperties;
+
+    protected static ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
 
     protected LoginPage loginPage;
     protected HomePage homePage;
@@ -33,6 +38,8 @@ public class ParentTest {
 //        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 
         initDriver();
+       // configProperties = new ConfigFactory.create(ConfigProperties.class);
+
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         sparePage = new SparePage(webDriver);
