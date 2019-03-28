@@ -1,5 +1,7 @@
 package parentTest;
 
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,6 +18,12 @@ import java.util.concurrent.TimeUnit;
 public class ParentTest {
 
     WebDriver webDriver; // 4. Обья вили вебдрайвер перед Бефор и Автер, чтоб он был доступен для каждого метода (внутренность бефор и афтер_
+
+    protected static ConfigProperties configProperties
+            = ConfigFactory.create(ConfigProperties.class);
+    // we created an object that will be go to file and take data from them
+    // we say - create value from that data
+
     protected LoginPage loginPage; // 5.
     protected HomePage homePage;
     protected SparePage sparePage;
