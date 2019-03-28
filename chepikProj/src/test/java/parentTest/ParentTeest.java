@@ -1,6 +1,8 @@
 package parentTest;
 
+import libs.ConfigProperties;
 import login.Login;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,6 +23,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ParentTeest {
     WebDriver webDriver;
+    protected static ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
+
     protected LoginPage loginPage;//чтоб было видно в паренттест
     protected HomePage homePage;
     protected SparePage sparePage;
