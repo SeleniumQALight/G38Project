@@ -58,15 +58,15 @@ public class LoginPage extends ParentPage {
     }
 
     public void clickOnButtonSubmit() {
-         try {
-             button.click();
-             System.out.println("Button was clicked");
-
-         }catch (Exception e){
-             System.out.println("Cant work with ellement" + e);
-             Assert.fail("Cant work with ellement + e");
-         }
-   //     actionsWithOurElements.clickOnElement(button);
+//         try {
+//             button.click();
+//             System.out.println("Button was clicked");
+//
+//         }catch (Exception e){
+//             System.out.println("Cant work with ellement" + e);
+//             Assert.fail("Cant work with ellement + e");
+//         }
+        actionsWithOurElements.clickOnElement(button);
     }
 
 
