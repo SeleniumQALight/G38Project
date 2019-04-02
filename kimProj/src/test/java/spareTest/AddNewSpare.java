@@ -1,5 +1,6 @@
 package spareTest;
 
+import org.junit.After;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -17,7 +18,12 @@ public class AddNewSpare extends ParentTest {
         editSparePage.selectSpareTypeInDD("Механика1");
         editSparePage.clickButtonCreate();
 
-        checkExpectedResult("spare was not added", sparePage.isSpareInList(spareName));
+        checkExpectedResult("spare was not added",
+                sparePage.isSpareInList(spareName));
+    }
+
+    @After
+    public void deletingSpare() {
         sparePage.deleteingSpareUntilPresent(spareName);
     }
 }

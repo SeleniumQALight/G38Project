@@ -46,3 +46,4 @@ public class HomePage extends PerentPage {
         actionsWithOurElements.clickOnElement(subMenuSpar);
     }
 }
+

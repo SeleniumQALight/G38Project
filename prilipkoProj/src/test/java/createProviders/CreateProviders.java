@@ -18,8 +18,8 @@ public class CreateProviders extends ParentTest {
 
         providersPage.openFirstProvidersInList();
 
-        providersEditPage.privatPersonCheckbox("checked");
-        providersEditPage.isOurFirmCheckbox("null");
+        providersEditPage.privatPersonCheckbox("unchecked");
+        providersEditPage.isOurFirmCheckbox("checked");
         providersEditPage.clickOnCreateButton();
     }
 }

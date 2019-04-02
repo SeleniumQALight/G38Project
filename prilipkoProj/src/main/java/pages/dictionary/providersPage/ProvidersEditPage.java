@@ -24,11 +24,11 @@ public class ProvidersEditPage extends ParentPage {
 
 
     public void privatPersonCheckbox(String status) {
-        actionsWithOurElements.setStatusToCheckbox(privatePersonCheckbox,status);
+        actionsWithOurElements.setStatusToCheckboxV2(privatePersonCheckbox,status);
     }
 
     public void isOurFirmCheckbox(String status) {
-        actionsWithOurElements.setStatusToCheckbox(isOurFirmCheckbox,status);
+        actionsWithOurElements.setStatusToCheckboxV2(isOurFirmCheckbox,status);
     }
 
     public void clickOnCreateButton() {

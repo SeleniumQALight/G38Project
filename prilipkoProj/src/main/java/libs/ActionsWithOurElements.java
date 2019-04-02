@@ -8,7 +8,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class ActionsWithOurElements {
@@ -16,13 +19,17 @@ public class ActionsWithOurElements {
     WebDriver driver;
 
     private Logger logger = Logger.getLogger(getClass());
+    private WebDriverWait wait10, wait15;
 
     public ActionsWithOurElements(WebDriver driver) {
         this.driver = driver;
+        wait10 = new WebDriverWait(driver, 10);
+        wait15 = new WebDriverWait(driver, 15);
     }
 
     public void enterTextInToElement(WebElement element, String text) {
         try {
+            wait10.until(ExpectedConditions.elementToBeClickable(element));
             element.clear();
             element.sendKeys(text);
             logger.info(text + " was input into element"); //Просто информация
@@ -33,6 +40,7 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) {
         try {
+            wait15.until(ExpectedConditions.elementToBeClickable(webElement));
             String buttonName = webElement.getText();
             webElement.click();
             logger.info("Element " + "'" + buttonName + "'" +" was clicked");
@@ -103,7 +111,7 @@ public class ActionsWithOurElements {
 
     // CHECKBOX
     public void setStatusToCheckbox(WebElement webElement, String status) {
-        try{
+        try {
             if("checked".equals(status)){
                 if(webElement.isSelected()) {
                     logger.info("Checkbox has been activated");
@@ -113,17 +121,40 @@ public class ActionsWithOurElements {
                     logger.info("Checkbox activated");
                 }
             }
-            if ("null".equals(status)) {
+            if("unchecked".equals(status)) {
                 if(webElement.isSelected()) {
                     webElement.click();
                     logger.info("Checkbox deactivated");
                 }
-                else if(!webElement.isSelected()){
+                else if(!webElement.isSelected()) {
                     logger.info("Checkbox has been deactivated");
                 }
             }
         } catch (Exception e) {
             printErrorAndStopTest(e);
+        }
+    }
+
+    public void setStatusToCheckboxV2(WebElement element, String neededStatus) {
+        if ("checked".equals(neededStatus) || "unchecked".equals(neededStatus)) {
+            try {
+                if(element.isSelected() && "checked".equals(neededStatus)) {
+                    logger.info("Already checked");
+                } else if(!element.isSelected() && "checked".equals(neededStatus)) {
+                    element.click();
+                    logger.info("Checkbox checked");
+                } else if(element.isSelected() && "unchecked".equals(neededStatus)) {
+                    element.click();
+                    logger.info("Checkbox unchecked");
+                } else if (!element.isSelected() && "unchecked".equals(neededStatus)) {
+                    logger.info("Already unchecked");
+                }
+            } catch (Exception e) {
+                printErrorAndStopTest(e);
+            }
+        } else {
+            logger.error("State should be 'checked' or 'unchecked'");
+            Assert.fail("State should be 'checked' or 'unchecked'");
         }
     }
 // *********************************************************************************************************************

@@ -3,7 +3,7 @@ package login;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-public class loginWithPageObject extends ParentTest {
+public class LoginWithPageObject1 extends ParentTest {
 
     @Test
     public void validLogin() {

@@ -1,5 +1,6 @@
 package spareTest;
 
+import org.junit.After;
 import org.junit.Test;
 import pages.SparePage;
 import parentTest.ParentTest;
@@ -20,5 +21,11 @@ public class AddNewSpare extends ParentTest {
 
         checkExpectedResult("Spare wasn't added",  sparePage.isSpareInList (spareName));
 
+    }
+
+
+    @After
+    public void deletingSpare () {
+        sparePage.deletingSpareUntilPresent(spareName);
     }
 }

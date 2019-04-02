@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class ParentPage {
-    WebDriver webDriver;
-    ActionsWithOurElements actionsWithOurElements;
-    Logger logger = Logger.getLogger(getClass());
+    protected WebDriver webDriver;
+    protected   ActionsWithOurElements actionsWithOurElements;
+    protected Logger logger = Logger.getLogger(getClass());
 
     public ParentPage(WebDriver webDriver) {
         this.webDriver = webDriver;

@@ -1,6 +1,7 @@
-package mainPack.pages;
+package mainPack.loginPage;
 
 import libs.ActionsWithOurElements;
+import mainPack.pages.ParentPage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
