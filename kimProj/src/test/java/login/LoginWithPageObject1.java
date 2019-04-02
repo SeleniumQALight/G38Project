@@ -1,10 +1,15 @@
 package login;
 
+import io.qameta.allure.Issue;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parentTest.ParentTest;
 
 public class LoginWithPageObject1 extends ParentTest {
 
+    @Issue("7898")
+    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void validLogin() {
         loginPage.openPage();
