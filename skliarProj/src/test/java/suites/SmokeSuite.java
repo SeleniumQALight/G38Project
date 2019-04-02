@@ -10,8 +10,8 @@ import sparSpare.AddNewSpare;
 @Suite.SuiteClasses(
         {
                 LoginWithPageObject.class,
-                LoginsWithParams.class,
-                AddNewSpare.class
+//                LoginsWithParams.class,
+//                AddNewSpare.class
         }
 )
 public class SmokeSuite {
