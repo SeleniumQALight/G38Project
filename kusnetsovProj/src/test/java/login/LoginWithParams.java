@@ -23,7 +23,7 @@ public class LoginWithParams extends ParentTest {
     public static Collection testData() {
         return Arrays.asList(new Object[][]{
                 {"Student", "906090"},
-                {"Student", "909090"},
+                {"Student", "90900"},
                 {"Login", "909090"}
         });
     }
