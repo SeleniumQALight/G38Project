@@ -51,7 +51,7 @@ public class ParentTest {
 
     }
 
-    @After
+//    @After
 //    public void tearDown() {
 //        webDriver.quit();
 //    }
