@@ -1,5 +1,6 @@
 package login;
 
+import io.qameta.allure.Step;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -34,7 +35,6 @@ public class LoginWithParams extends ParentTest {
         loginPage.enterTextInToInputLogin(login);
         loginPage.enterTextInToInputPass(pass);
         loginPage.clickOnButtonSubmit();
-
         checkExpectedResult("Avatar should not be present"
                 , !homePage.isAvatarPresent());
     }

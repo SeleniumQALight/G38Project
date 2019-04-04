@@ -20,7 +20,7 @@ public class newKP {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         webDriver.get("https://erdr.gp.gov.ua/erdr/erdr.web.system.LoginPage.cls?AutoLogout=1");
-        webDriver.findElement(By.xpath(".//*[@type='button']" )).click();
+      //  webDriver.findElement(By.xpath(".//*[@type='button']" )).click();
 
         System.out.println("Site was opened");
 
