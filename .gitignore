@@ -14,5 +14,5 @@ target/site
 *.ipr
 *.iws
 .allure
-
+*/ConfigProperties.properties
 
