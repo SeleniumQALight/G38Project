@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,7 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//*[@class='pull-left image']")
     private WebElement leftAvatar;
 
+    @Step
     public boolean isAvatarPresent() {
         return actionsWithElements.isElementDisplayed(leftAvatar);
 //        try {
@@ -33,6 +35,7 @@ public class HomePage extends ParentPage {
 //        }
     }
 
+    @Step
     public void openToThisPage() {
         LoginPage loginPage = new LoginPage(webDriver);
 
@@ -42,10 +45,12 @@ public class HomePage extends ParentPage {
         );
     }
 
+    @Step
     public  void  clickOnSubmenuSpare() {
         actionsWithElements.clickOnElement(subMenuSpare);
     }
 
+    @Step
     public void clickOnMenuDictionary() {
         actionsWithElements.clickOnElement(menuDictionary);
     }

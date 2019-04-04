@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +22,7 @@ public class LoginPage extends ParentPage{
     private WebElement button;
 
 
-
+    @Step
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
@@ -31,7 +32,7 @@ public class LoginPage extends ParentPage{
             Assert.fail("Can not open Login Page " + e);
         }
     }
-
+    @Step
     public void enterTextInToInputLogin(String login) {
 
         actionsWithOurElements.enterTextInToElement(inputLogin, login);
@@ -45,7 +46,7 @@ public class LoginPage extends ParentPage{
 //            Assert.fail("Can not work with element" + e);
 //        }
     }
-
+    @Step
     public void enterTextInToInputPass(String pass) {
 
         actionsWithOurElements.enterTextInToElement(inputPswd, pass);
@@ -60,7 +61,7 @@ public class LoginPage extends ParentPage{
 //            Assert.fail("Can not work with element" + e);
 //        }
     }
-
+    @Step
     public void clickOnButtonSubmit(){
         actionsWithOurElements.clickOnElement(button);
 //        try{
@@ -72,6 +73,7 @@ public class LoginPage extends ParentPage{
 //        }
     }
 
+    @Step
     public void login(String login, String pswd) {
         openPage();
         enterTextInToInputLogin(login);

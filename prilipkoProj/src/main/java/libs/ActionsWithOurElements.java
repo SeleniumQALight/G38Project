@@ -29,7 +29,7 @@ public class ActionsWithOurElements {
 
     public void enterTextInToElement(WebElement element, String text) {
         try {
-            wait10.until(ExpectedConditions.elementToBeClickable(element));
+            // wait10.until(ExpectedConditions.elementToBeClickable(element));
             element.clear();
             element.sendKeys(text);
             logger.info(text + " was input into element"); //Просто информация
@@ -40,7 +40,7 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) {
         try {
-            wait15.until(ExpectedConditions.elementToBeClickable(webElement));
+            // wait15.until(ExpectedConditions.elementToBeClickable(webElement));
             String buttonName = webElement.getText();
             webElement.click();
             logger.info("Element " + "'" + buttonName + "'" +" was clicked");

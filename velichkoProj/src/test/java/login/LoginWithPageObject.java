@@ -1,16 +1,24 @@
 package login;
 
+import io.qameta.allure.Issue;
+import io.qameta.allure.Issues;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parentTest.ParentTest;
 
 public class LoginWithPageObject extends ParentTest {
+
+    @Issue("1234")
+    @Severity(SeverityLevel.BLOCKER)
+
 
     @Test
 
     public void validLogin(){
         loginPage.openPage();
         loginPage.enterTextInToInputLogin("Student");
-        loginPage.enterTextInToInputPass("909090");
+        loginPage.enterTextInToInputPass("909990");
         loginPage.clickOnButtonSudmit();
 
         checkExpectedResult (

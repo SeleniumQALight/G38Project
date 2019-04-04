@@ -43,8 +43,10 @@ public class ActionWithOurElements {
     }
 
     private void waitElement(WebElement element, WebDriverWait wait) {
-       wait.until(ExpectedConditions.elementToBeClickable(element)); // https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/ExpectedConditions.html
+       wait.until(ExpectedConditions.elementToBeClickable(element));
+       // https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/ExpectedConditions.html
     }
+
 
     public void clickOnElement(WebElement element) {
         try {

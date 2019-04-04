@@ -28,6 +28,7 @@ public class Login {
         webDriver.findElement(By.name("_password")).sendKeys("909090");
         webDriver.findElement(By.tagName("button")).click();
        //  webDriver.findElement(By.className("breadcrumb")).click();
+
         webDriver.findElement(By.className("navbar-custom-menu")).click();
         webDriver.findElement(By.className("pull-left")).click();
         webDriver.findElement(By.id("userProfileEdit_user_email")).clear();
