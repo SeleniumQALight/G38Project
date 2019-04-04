@@ -1,14 +1,15 @@
 package parentTest;
 
 
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import pages.*;
+import pages.DashboardPage;
+import pages.LoginPage;
 import pages.dictionary.apparatPage.ApparatEditPage;
 import pages.dictionary.apparatPage.ApparatPage;
 import pages.dictionary.providersPage.ProvidersEditPage;
@@ -29,6 +30,7 @@ import java.util.concurrent.TimeUnit;
 public class ParentTest {
 
     private WebDriver driver;
+    protected static ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
 
     protected Date dateNow = new Date();
     protected SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy/MM/dd_hh:mm:ss");

@@ -40,6 +40,27 @@
       <version>1.2.17</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi for working with xls-->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.14</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi for working with xls-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.18</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.aeonbits.owner</groupId>
+        <artifactId>owner</artifactId>
+        <version>1.0.4</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
