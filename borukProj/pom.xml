@@ -19,6 +19,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <aspectj.version>1.8.9</aspectj.version>
+    <compiler.version>1.7</compiler.version>
   </properties>
 
   <dependencies>
@@ -39,28 +41,47 @@
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi for working with xls-->
+    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20180130</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
+    <dependency>
+      <groupId>org.aeonbits.owner</groupId>
+      <artifactId>owner</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
       <version>3.14</version>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi for working with xls-->
+    <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
+    <dependency>
+      <groupId>org.aeonbits.owner</groupId>
+      <artifactId>owner</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.18</version>
     </dependency>
-
     <dependency>
-        <groupId>org.aeonbits.owner</groupId>
-        <artifactId>owner</artifactId>
-        <version>1.0.4</version>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit4</artifactId>
+      <version>2.0-BETA13</version>
     </dependency>
-
-
   </dependencies>
 
   <build>
