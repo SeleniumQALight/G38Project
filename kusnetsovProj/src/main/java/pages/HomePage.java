@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,21 +19,21 @@ public class HomePage extends ParentPage {
     }
 
 
-
+    @Step
     public boolean isAvatarPresent() {
         return actionsWithOurElements.isElementPresent(avatar);
     }
-
+    @Step
     public void goToThisPage() {
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.login("Student", "909090");
         Assert.assertEquals("Avatar is not present",true,isAvatarPresent());
     }
-
+    @Step
     public void clickOnMenuDictionary(){
         actionsWithOurElements.clickOnElement(menuDictionary);
     }
-
+    @Step
     public void clickOnSubMenuSpare(){
         actionsWithOurElements.clickOnElement(subMenuSpare);
     }
