@@ -19,7 +19,7 @@ public class LoginPage extends ParentPage {
     private WebElement inputPass;
 
     @FindBy (tagName = "button")
-    private WebElement button;
+    private WebElement button;//
 
     public void openPage() {
         try {
