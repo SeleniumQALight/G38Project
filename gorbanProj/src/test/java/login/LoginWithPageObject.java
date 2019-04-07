@@ -1,13 +1,16 @@
 package login;
 
+import io.qameta.allure.Issue;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import parentTest.ParentTest;
 
 
 public class LoginWithPageObject extends ParentTest {
 
+    @Issue("3655")
+    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void validLogin() {
 
@@ -21,4 +24,12 @@ public class LoginWithPageObject extends ParentTest {
                 homePage.isAvatarPresent()
         );
     }
+
+    @Test
+    public void invalidLogin() {
+        loginPage.login("tttt", "909090");
+        checkExpectedResult("Avatar should not be present",
+                !homePage.isAvatarPresent());
+    }
+
 }

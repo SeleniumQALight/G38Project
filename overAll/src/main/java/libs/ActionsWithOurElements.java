@@ -38,7 +38,7 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement element) {
         try{
-            wait10.until(ExpectedConditions.elementToBeClickable(element));
+//            wait10.until(ExpectedConditions.elementToBeClickable(element));
 //            wait10.until(ExpectedConditions.not(
 //                    ExpectedConditions.elementToBeClickable(element)
 //            ));
