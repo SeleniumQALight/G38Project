@@ -133,7 +133,7 @@ public class Database {
     /*
      *  That method gets SQL [Select COLUMN_NAME_1,COLUMN_NAME_2 from TABLE_NAME where ...] query as parameter and returns result set as List of Strings
      */
-    public java.awt.List selectTable(String query) throws SQLException {
+    public List selectTable(String query) throws SQLException {
         // Create statement for connection, execute query and save outcome in ResultSet
         Statement stm=connection.createStatement();
         //System.out.println(query);

@@ -1,17 +1,16 @@
 package testDB;
 
 import libs.Database;
-import  org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-
-import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TestDB {
@@ -31,13 +30,15 @@ public class TestDB {
 
     @Test
     public void testDB() throws SQLException {
-        List<ArrayList> dataFromSeleniumTable = dbMySql.selectTable("select * from seleniumTable");
-    logger.info(dataFromSeleniumTable);
-    dbMySql.changeTable("Insert into seleniumTable Values (45,'dukhnin','pass')");
-    List<ArrayList> dataFromSeleniumTableAfter=dbMySql.selectTable("select * from seleniumTable");
+        List<ArrayList> dataFromSeleniumTable =
+                dbMySql.selectTable("select * from seleniumTable where login='radulenko1'");
         logger.info(dataFromSeleniumTable);
+//        dbMySql.changeTable("INSERT INTO seleniumTable VALUES (78,'radulenko1','pass')");
+        List<ArrayList> dataFromSeleniumTableAfter =
+                dbMySql.selectTable("select * from seleniumTable where login='radulenko1'");
+        logger.info(dataFromSeleniumTableAfter);
 
-        Assert.assertEquals("","dukhnin",dataFromSeleniumTableAfter.get(1).get(2));
+        Assert.assertEquals("","radulenko1", dataFromSeleniumTableAfter.get(1).get(2));
 
     }
 }
