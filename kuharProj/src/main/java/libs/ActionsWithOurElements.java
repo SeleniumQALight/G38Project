@@ -2,27 +2,31 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionsWithOurElements {
 
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait wait10, wait15;
 
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        wait10 = new WebDriverWait(webDriver,10);
+        wait15 = new WebDriverWait(webDriver,15);
 
     }
 
     public void enterTextIntoElement(WebElement element, String text) {
         try {
-
-            element.clear();
             element.sendKeys(text);
-            //System.out.println(text + " was input into element"); // добавили логер logger
-            logger.info(text + " was input into element");
+            logger.info("'" + text + "'"  + " was entered into input");
         } catch (Exception a) {
             printErrorAndStopTest(a);
         }
@@ -36,9 +40,10 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement element) {
         try {
+            wait10.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
            // System.out.println("Element was clicked");
-            logger.info("Element was clicked");
+            logger.info(element + " element was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -47,10 +52,10 @@ public class ActionsWithOurElements {
     public boolean isElementPresent (WebElement webElement){
         try {
             boolean isDisplayed = webElement.isDisplayed();
-            logger.info("Element is displayed " + isDisplayed);
+            logger.info("Element " + webElement + " is displayed " + isDisplayed);
             return isDisplayed;
         }catch (Exception e){
-            logger.info("Element is displayed -> false");
+            logger.info("Element " + webElement +  " is displayed -> false");
             return false;
         }
     }
@@ -68,7 +73,7 @@ public class ActionsWithOurElements {
     }
 
 
-    //TODO:
+
     public void selectValue(WebElement element, String value){
         try {
             Select select = new Select(element);
@@ -77,6 +82,48 @@ public class ActionsWithOurElements {
 
         }catch (Exception e){
             printErrorAndStopTest(e);
+        }
+    }
+
+    public boolean isElementPresent(By xpath) {
+        try {
+            return isElementPresent(webDriver.findElement(xpath));
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public void clickOnElement(By xpath) {
+        try {
+            clickOnElement(webDriver.findElement(xpath));
+
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
+
+
+// TODO actions with checkbox
+    public void setStatusToCheckbox (WebElement element, String neededState){
+        if ("check".equals(neededState) || "uncheck".equals(neededState)){
+            try {
+                if (element.isSelected() && "check".equals(neededState)){
+                    logger.info("Already checked");
+                }else if (!element.isSelected() && "check".equals(neededState)){
+                    element.click();
+                    logger.info("Checkbox checked");
+                }else if (element.isSelected() && "uncheck".equals(neededState)){
+                    element.click();
+                    logger.info("Checkbox DEchecked");
+                }else if (!element.isSelected() && "uncheck".equals(neededState)){
+                    logger.info("Checkbox already unchecked");
+                }
+            }catch (Exception e){
+                printErrorAndStopTest(e);
+            }
+        }else {
+            logger.error("State should be 'check' or 'uncheck' ");
+            Assert.fail("State should be 'check' or 'uncheck' ");
         }
     }
 }

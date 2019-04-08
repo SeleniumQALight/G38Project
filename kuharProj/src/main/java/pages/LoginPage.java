@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,10 +21,16 @@ public class LoginPage extends ParentPage {
     private WebElement button;
 
 
+
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
 
+
+
+
+    @Step
     public void openPage() {
 
         try {
@@ -37,6 +44,7 @@ public class LoginPage extends ParentPage {
 
     }
 
+    @Step
     public void enterTextIntoInputLogin(String login) {
 //         try {
 //             inputLogin.clear();
@@ -48,7 +56,7 @@ public class LoginPage extends ParentPage {
 //         }
         actionsWithOurElements.enterTextIntoElement(inputLogin, login);   // заменили вместо try
     }
-
+    @Step
     public void enterTextIntoInputPass(String pass) {
 //        try {
 //            inputPass.clear();
@@ -60,21 +68,21 @@ public class LoginPage extends ParentPage {
 //        }
         actionsWithOurElements.enterTextIntoElement(inputPass, pass);
     }
-
+    @Step
     public void clickOnButtonSubmit() {
-//         try {
-//             button.click();
-//             System.out.println("Button was clicked");
-//
-//         }catch (Exception e){
-//             System.out.println("Cant work with ellement" + e);
-//             Assert.fail("Cant work with ellement + e");
-//         }
+         try {
+             button.click();
+             System.out.println("Button was clicked");
 
-        actionsWithOurElements.clickOnElement(button);
+         }catch (Exception e){
+             System.out.println("Cant work with ellement" + e);
+             Assert.fail("Cant work with ellement + e");
+         }
+
+       // actionsWithOurElements.clickOnElement(button);
     }
 
-
+    @Step
     public void login(String invalidLogin, String password) {
         openPage();
         enterTextIntoInputLogin(invalidLogin);

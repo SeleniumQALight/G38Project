@@ -19,6 +19,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+
+    <!-- allure dep -->
+    <aspectj.version>1.8.9</aspectj.version>
+    <compiler.version>1.7</compiler.version>
   </properties>
 
   <dependencies>
@@ -37,13 +41,48 @@
       <version>3.12.0</version>
     </dependency>
 
-
+    <!-- 1.2.17-->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
+      <version>1.2.16</version>
     </dependency>
 
+
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi  для работы с екселем 3.14-->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner  чтобы пойти в проперти файл и по ключу получать  DATA_FILE,DATA_FILE_PATH -->
+    <dependency>
+      <groupId>org.aeonbits.owner</groupId>
+      <artifactId>owner</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.18</version>
+    </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi</artifactId>
+          <version>4.0.1</version>
+          <scope>compile</scope>
+      </dependency>
+
+
+    <!-- allure dep 2.0-BETA13-->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit4</artifactId>
+      <version>RELEASE</version>
+    </dependency>
 
 
   </dependencies>
@@ -90,6 +129,69 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+
+
+
+
+        <!-- allure dep -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20</version>
+          <configuration>
+
+            <!-- parallel classes running -->
+            <parallel>classes</parallel>
+            <threadCount>3</threadCount>
+            <argLine>
+              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            </argLine>
+            <properties>
+              <property>
+                <name>listener</name>
+                <value>io.qameta.allure.junit4.AllureJunit4</value>
+              </property>
+            </properties>
+            <systemProperties>
+              <property>
+                <name>allure.results.directory</name>
+                <value>${project.build.directory}/allure-results</value>
+              </property>
+
+              <!-- JIRA TICKET -->
+              <property>
+                <name>allure.link.issue.pattern</name>
+                <value>https://cartfresh.atlassian.net/browse/TOM-{}</value>
+              </property>
+            </systemProperties>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.aspectj</groupId>
+              <artifactId>aspectjweaver</artifactId>
+              <version>${aspectj.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-maven</artifactId>
+          <version>2.8</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+
+
+
+
+
+
       </plugins>
     </pluginManagement>
     <resources>
