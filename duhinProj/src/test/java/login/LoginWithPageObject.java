@@ -9,7 +9,7 @@ public class LoginWithPageObject extends ParentTest {
     public void validLogin(){
         loginPage.openPage();
         loginPage.enterTextInToinputLogin("Student");
-        loginPage.enterTextInToinputPass("909090");
+        loginPage.enterTextInToinputPass("909091");
         loginPage.clickOnButtonSubmit();
 
         checkEcpectedResult (
