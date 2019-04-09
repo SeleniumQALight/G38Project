@@ -98,5 +98,7 @@
     <module>grebenukProj</module>
     <module>velichkoProj</module>
     <module>jBehaveProject</module>
+    <module>cucumberProj</module>
+
   </modules>
 </project>
