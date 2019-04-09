@@ -7,13 +7,16 @@ import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
 import pages.dictionary.apparatPage.ApparatEditPage;
@@ -28,6 +31,8 @@ import pages.installationPage.InstallationEditPage;
 import pages.installationPage.InstallationPage;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -62,11 +67,11 @@ public class ParentTest {
 
     @Before
     public void setUp() {
+        initDriver();
+        //File file = new File("./src/drivers/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 
-        File file = new File("./src/drivers/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
@@ -83,15 +88,6 @@ public class ParentTest {
         providersEditPage = new ProvidersEditPage(driver);
         installationPage = new InstallationPage(driver);
         installationEditPage = new InstallationEditPage(driver);
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
-
-    protected void checkExpectedResult(String message, boolean actualResult) {
-        Assert.assertEquals(message,true,actualResult);
     }
 
     private void initDriver() {
@@ -116,6 +112,30 @@ public class ParentTest {
             capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             driver = new InternetExplorerDriver();
             logger.info("IE is started");
+        } else if ("remote".equals(browser)) {
+            try {
+                //ChromeOptions chromeOptions = new ChromeOptions();
+                //desiredCapabilities.chrome();
+                //desiredCapabilities.setVersion("68");
+                //desiredCapabilities.setPlatform(Platform.IOS);
+
+                driver = new RemoteWebDriver(
+                        new URL("http://localhost:4444/wd/hub"),
+                        DesiredCapabilities.chrome());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
         }
     }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+
+    protected void checkExpectedResult(String message, boolean actualResult) {
+        Assert.assertEquals(message,true,actualResult);
+    }
+
+
 }
