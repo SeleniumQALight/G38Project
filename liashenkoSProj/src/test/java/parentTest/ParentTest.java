@@ -13,9 +13,12 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.*;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
@@ -74,7 +77,25 @@ public class ParentTest {
 
 
             webDriver = new FirefoxDriver();
-        } /*else if ("iedriver".equals(browser)) {
+        }else if ("remote".equals(browser)) {
+            try {
+//                ChromeOptions chromeOptions = new ChromeOptions();
+//                desiredCapabilities.chrome();
+//                desiredCapabilities.setVersion("68");
+//                desiredCapabilities.setPlatform(Platform.IOS);
+
+                webDriver = new RemoteWebDriver(
+                        new URL("http://localhost:4444/wd/hub"),
+                        DesiredCapabilities.chrome());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+
+        /*else if ("iedriver".equals(browser)) {
             logger.info("IE will be started");
             File file1 = new File(".././drivers/IEDriverServer.exe");
             System.setProperty("webdriver.ie.driver", file1.getAbsolutePath());
