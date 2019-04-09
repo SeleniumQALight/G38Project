@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver; //1. Добавляем наследование и альт+ентер и автоматом создается конструктор
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
 
     }
 
+    @Step
     public void enterTextIntoInputLogin(String login) {
         actionsWithOurElements.clickOnElement(inputLogin, login);
 
@@ -46,6 +48,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
  /*
 
   */
+ @Step
     public void enterTextIntoInputPassword (String password) {
         actionsWithOurElements.clickOnElement(inputPass, password);
     }
@@ -60,6 +63,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
 
     }
 */
+@Step
     public void clickOnEnterButton () {
         actionsWithOurElements.clickOnElement(button);
 /*
@@ -73,7 +77,7 @@ public class LoginPage extends ParentPage {// 1.1. СОздался констр
 
         */
     }
-
+    @Step
     public void login(String login, String password) {
     openPage();
     enterTextIntoInputLogin(login);

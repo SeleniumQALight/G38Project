@@ -1,5 +1,6 @@
 package login;
 
+import io.qameta.allure.Step;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -10,8 +11,9 @@ public class LoginWithPageObject extends ParentTest {
 
         loginPage.openPage (); // in LoginPage - we create openPage method
         loginPage.enterTextIntoInputLogin ("Student");
-        loginPage.enterTextIntoInputPassword("909090");
+        loginPage.enterTextIntoInputPassword("909060");
         loginPage.clickOnEnterButton();
+
 
         checkExpectedResult(
                 "Avatar is not Present",
